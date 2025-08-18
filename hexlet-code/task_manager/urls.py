@@ -19,7 +19,8 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path("", views.index),
+    path("", views.index, name='home'),
     path("users/", include("task_manager.user.urls")),
+    path('users/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ]
