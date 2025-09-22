@@ -22,5 +22,7 @@ urlpatterns = [
     path("", views.index, name='home'),
     path("users/", include("task_manager.user.urls")),
     path('users/', include('django.contrib.auth.urls')),
+    path('statuses/', include('task_manager.statuses.urls')),
+    path("labels/", include("task_manager.label.urls")),
     path('admin/', admin.site.urls),
 ]

@@ -241,8 +241,12 @@
                         <path d="M21 21l-5.2-5.2"></path>
                     </svg>
                 </a>
-                <a class="btn btn-sm btn-outline-secondary" href="#">Вход</a>
-                <a class="btn btn-sm btn-outline-secondary" href="#">Регистрация</a>
+                {% if user.is_authenticated %}
+                <a class="btn btn-sm btn-outline-secondary" href="users/logout/">Выход</a>
+                {% else %}
+                <a class="btn btn-sm btn-outline-secondary" href="users/login/">Вход</a>
+                <a class="btn btn-sm btn-outline-secondary" href="users/signup/">Регистрация</a>
+                {% endif %}
             </div>
         </div>
     </header>
@@ -252,6 +256,9 @@
             >Менеджер задач</a
             >
             <a class="nav-item nav-link link-body-emphasis" href="users/">Пользователи</a>
+            <a class="nav-item nav-link link-body-emphasis" href="statuses/">Статусы</a>
+            <a class="nav-item nav-link link-body-emphasis" href="labels/">Метки</a>
+            <a class="nav-item nav-link link-body-emphasis" href="tasks/">Задачи</a>
         </nav>
     </div>
 </div>

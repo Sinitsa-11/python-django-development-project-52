@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'task_manager',
     'task_manager.user.apps.UserConfig',
+    'task_manager.statuses',
+    'task_manager.label',
 ]
 
 AUTH_USER_MODEL = 'user.CustomUser'
