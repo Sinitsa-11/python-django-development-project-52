@@ -26,6 +26,7 @@ class LabelCreateView(View):
     def post(self, request, *args, **kwargs):
         form = LabelForm(request.POST)
         if form.is_valid():
+            form.instance.author = self.request.user
             form.save()
             return redirect("labels_list")
         return render(request, "labels/create.html", {"form": form})

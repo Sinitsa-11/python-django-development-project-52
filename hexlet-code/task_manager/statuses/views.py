@@ -26,6 +26,7 @@ class StatusCreateView(View):
     def post(self, request, *args, **kwargs):
         form = StatusForm(request.POST)
         if form.is_valid():
+            form.instance.author = self.request.user
             form.save()
             return redirect("statuses_list")
         return render(request, "statuses/create.html", {"form": form})

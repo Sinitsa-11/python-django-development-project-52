@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'task_manager.user.apps.UserConfig',
     'task_manager.statuses',
     'task_manager.label',
+    'task_manager.task',
 ]
 
 AUTH_USER_MODEL = 'user.CustomUser'

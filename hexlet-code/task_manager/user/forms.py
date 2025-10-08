@@ -8,6 +8,10 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ('first_name', 'last_name', 'username', 'email')
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
