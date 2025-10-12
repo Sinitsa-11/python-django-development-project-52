@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Task
 from .forms import TaskForm
@@ -9,33 +10,40 @@ from .forms import TaskForm
 # Create your views here.
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        tasks = Task.objects.all()
-        return render(
-            request,
-            "tasks/index.html",
-            context={
-                "tasks": tasks,
-            },
-        )
+        if request.user.is_authenticated:
+            tasks = Task.objects.all()
+            return render(
+                request,
+                "tasks/index.html",
+                context={
+                    "tasks": tasks,
+                },
+            )
+        return redirect("login")
 
 
 class TaskShowView(View):
     def get(self, request, *args, **kwargs):
-        task_id = kwargs.get("id")
-        task = Task.objects.get(id=task_id)
-        return render(
-            request,
-            "tasks/show.html",
-            context={
-                "task": task,
-            },
-        )
+        if request.user.is_authenticated:
+            task_id = kwargs.get("id")
+            task = Task.objects.get(id=task_id)
+            return render(
+                request,
+                "tasks/show.html",
+                context={
+                    "task": task,
+                },
+            )
+        return redirect("login")
 
 
 class TaskCreateView(View):
     def get(self, request, *args, **kwargs):
-        form = TaskForm()
-        return render(request, "tasks/create.html", {"form": form})
+        if request.user.is_authenticated:
+            form = TaskForm()
+            return render(request, "tasks/create.html", {"form": form})
+        else:
+            return redirect("login")
 
     def post(self, request, *args, **kwargs):
         form = TaskForm(request.POST)
@@ -48,12 +56,14 @@ class TaskCreateView(View):
 
 class TaskUpdateView(View):
     def get(self, request, *args, **kwargs):
-        task_id = kwargs.get("id")
-        task = Task.objects.get(id=task_id)
-        form = TaskForm(instance=task)
-        return render(
-            request, "tasks/update.html", {"form": form, "task_id": task_id}
-        )
+        if request.user.is_authenticated:
+            task_id = kwargs.get("id")
+            task = Task.objects.get(id=task_id)
+            form = TaskForm(instance=task)
+            return render(
+                request, "tasks/update.html", {"form": form, "task_id": task_id}
+            )
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         task_id = kwargs.get("id")
@@ -70,10 +80,12 @@ class TaskUpdateView(View):
 class TaskDeleteView(View):
 
     def get(self, request, *args, **kwargs):
-        task_id = kwargs.get("id")
-        return render(
-            request, "tasks/delete.html", {"task_id": task_id}
-        )
+        if request.user.is_authenticated:
+            task_id = kwargs.get("id")
+            return render(
+                request, "tasks/delete.html", {"task_id": task_id}
+            )
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         task_id = kwargs.get("id")

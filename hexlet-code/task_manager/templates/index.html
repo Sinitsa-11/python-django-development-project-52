@@ -256,9 +256,11 @@
             >Менеджер задач</a
             >
             <a class="nav-item nav-link link-body-emphasis" href="users/">Пользователи</a>
+            {% if user.is_authenticated %}
             <a class="nav-item nav-link link-body-emphasis" href="statuses/">Статусы</a>
             <a class="nav-item nav-link link-body-emphasis" href="labels/">Метки</a>
             <a class="nav-item nav-link link-body-emphasis" href="tasks/">Задачи</a>
+            {% endif %}
         </nav>
     </div>
 </div>

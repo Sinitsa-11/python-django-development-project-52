@@ -6,7 +6,7 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('first_name', 'last_name', 'username', 'email')
+        fields = ('first_name', 'last_name', 'username')
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -67,9 +67,9 @@ class CustomUserDeleteView(View):
         user = get_object_or_404(CustomUser, id=user_id)
         if user:
             user.delete()
-            messages.success(request, "meow")
+            messages.success(request, "Пользователь удален")
             return redirect('users_list')
-        return render(request, "users/delete.html", {"user_id": user_id})
+        return render(request, "users/delete.html", {"user_id": user_id, "messages": messages})
 
 
 def view_logout(request):

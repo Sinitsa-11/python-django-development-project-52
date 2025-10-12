@@ -8,20 +8,24 @@ from .forms import StatusForm
 # Create your views here.
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        statuses = Status.objects.all()
-        return render(
-            request,
-            "statuses/index.html",
-            context={
-                'statuses': statuses,
-            },
-        )
+        if request.user.is_authenticated:
+            statuses = Status.objects.all()
+            return render(
+                request,
+                "statuses/index.html",
+                context={
+                    'statuses': statuses,
+                },
+            )
+        return redirect("login")
 
 
 class StatusCreateView(View):
     def get(self, request, *args, **kwargs):
-        form = StatusForm()
-        return render(request, "statuses/create.html", {"form": form})
+        if request.user.is_authenticated:
+            form = StatusForm()
+            return render(request, "statuses/create.html", {"form": form})
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         form = StatusForm(request.POST)
@@ -34,12 +38,14 @@ class StatusCreateView(View):
 
 class StatusUpdateView(View):
     def get(self, request, *args, **kwargs):
-        status_id = kwargs.get("id")
-        status = Status.objects.get(id=status_id)
-        form = StatusForm(instance=status)
-        return render(
-            request, "statuses/update.html", {"form": form, "status_id": status_id}
-        )
+        if request.user.is_authenticated:
+            status_id = kwargs.get("id")
+            status = Status.objects.get(id=status_id)
+            form = StatusForm(instance=status)
+            return render(
+                request, "statuses/update.html", {"form": form, "status_id": status_id}
+            )
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         status_id = kwargs.get("id")
@@ -56,10 +62,12 @@ class StatusUpdateView(View):
 class StatusDeleteView(View):
 
     def get(self, request, *args, **kwargs):
-        status_id = kwargs.get("id")
-        return render(
-            request, "statuses/delete.html", {"status_id": status_id}
-        )
+        if request.user.is_authenticated:
+            status_id = kwargs.get("id")
+            return render(
+                request, "statuses/delete.html", {"status_id": status_id}
+            )
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         status_id = kwargs.get("id")

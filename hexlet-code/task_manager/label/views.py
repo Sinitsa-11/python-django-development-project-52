@@ -8,20 +8,24 @@ from .forms import LabelForm
 # Create your views here.
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        labels = Label.objects.all()
-        return render(
-            request,
-            "labels/index.html",
-            context={
-                'labels': labels,
-            },
-        )
+        if request.user.is_authenticated:
+            labels = Label.objects.all()
+            return render(
+                request,
+                "labels/index.html",
+                context={
+                    'labels': labels,
+                },
+            )
+        return redirect("login")
 
 
 class LabelCreateView(View):
     def get(self, request, *args, **kwargs):
-        form = LabelForm()
-        return render(request, "labels/create.html", {"form": form})
+        if request.user.is_authenticated:
+            form = LabelForm()
+            return render(request, "labels/create.html", {"form": form})
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         form = LabelForm(request.POST)
@@ -34,12 +38,14 @@ class LabelCreateView(View):
 
 class LabelUpdateView(View):
     def get(self, request, *args, **kwargs):
-        label_id = kwargs.get("id")
-        status = Label.objects.get(id=label_id)
-        form = LabelForm(instance=status)
-        return render(
-            request, "labels/update.html", {"form": form, "label_id": label_id}
-        )
+        if request.user.is_authenticated:
+            label_id = kwargs.get("id")
+            status = Label.objects.get(id=label_id)
+            form = LabelForm(instance=status)
+            return render(
+                request, "labels/update.html", {"form": form, "label_id": label_id}
+            )
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         label_id = kwargs.get("id")
@@ -56,10 +62,12 @@ class LabelUpdateView(View):
 class LabelDeleteView(View):
 
     def get(self, request, *args, **kwargs):
-        label_id = kwargs.get("id")
-        return render(
-            request, "labels/delete.html", {"label_id": label_id}
-        )
+        if request.user.is_authenticated:
+            label_id = kwargs.get("id")
+            return render(
+                request, "labels/delete.html", {"label_id": label_id}
+            )
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         label_id = kwargs.get("id")
