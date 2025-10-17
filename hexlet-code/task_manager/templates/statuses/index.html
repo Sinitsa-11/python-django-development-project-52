@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <h1>Статусы</h1>
 <a class="btn btn-sm btn-outline-secondary" href="create/">Создать</a>
 <table class="table table-striped">
@@ -28,5 +23,4 @@
     {% endfor %}
     </tbody>
 </table>
-</body>
-</html>
+{% endblock %}

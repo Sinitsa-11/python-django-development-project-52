@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 
 # Create your views here.
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView
 from django.views import View
 from django.contrib.auth import get_user_model, logout
 from django.contrib import messages
+from django.contrib.auth.forms import SetPasswordForm
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
@@ -25,6 +26,7 @@ class CustomUserUpdateView(View):
         user_id = kwargs["user_id"]
         if request.user.is_authenticated:
             user = get_object_or_404(CustomUser, id=user_id)
+            user.set_unusable_password()
             if request.user == user:
                 form = CustomUserChangeForm(instance=user)
                 return render(
@@ -44,6 +46,34 @@ class CustomUserUpdateView(View):
             return redirect("users_list")
         return render(
             request, "users/update.html", {"form": form, "user_id": user_id}
+        )
+
+
+class PasswordUpdateView(View):
+    def get(self, request, *args, **kwargs):
+        user_id = kwargs["user_id"]
+        if request.user.is_authenticated:
+            user = get_object_or_404(CustomUser, id=user_id)
+            user.set_unusable_password()
+            if request.user == user:
+                form = SetPasswordForm(user)
+                return render(
+                    request, "users/reset_password_form.html", {"form": form, "user_to_reset": user}
+                )
+            else:
+                return HttpResponse("you damn wrong")
+        else:
+            return HttpResponse("you idiot")
+
+    def post(self, request, *args, **kwargs):
+        user_id = kwargs["user_id"]
+        user = get_object_or_404(CustomUser, id=user_id)
+        form = SetPasswordForm(user, request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")
+        return render(
+            request, "users/reset_password_form.html", {"form": form, "user_to_reset": user}
         )
 
 

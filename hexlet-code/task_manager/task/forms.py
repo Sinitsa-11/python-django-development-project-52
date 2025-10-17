@@ -1,6 +1,5 @@
-from django.forms import ModelForm, ModelChoiceField, ChoiceField
+from django.forms import ModelForm
 from .models import Task
-from .. import statuses
 
 
 class TaskForm(ModelForm):

@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.views import View
 from .models import Status
 from .forms import StatusForm
+from .. import task
 
 
 # Create your views here.
@@ -64,6 +65,9 @@ class StatusDeleteView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             status_id = kwargs.get("id")
+            status = Status.objects.get(id=status_id)
+            if task.models.Task.objects.filter(status=status).exists():
+                return redirect("statuses_list")
             return render(
                 request, "statuses/delete.html", {"status_id": status_id}
             )

@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 {% if form.errors %}
     <div>
         <ul>
@@ -15,3 +17,5 @@
     </table>
     <input type="submit" value="Сохранить">
 </form>
+
+{% endblock %}

@@ -82,9 +82,13 @@ class TaskDeleteView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             task_id = kwargs.get("id")
-            return render(
-                request, "tasks/delete.html", {"task_id": task_id}
-            )
+            task = Task.objects.get(id=task_id)
+            if request.user == task.user:
+                return render(
+                    request, "tasks/delete.html", {"task_id": task_id}
+                )
+            else:
+                return redirect("tasks_list")
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
