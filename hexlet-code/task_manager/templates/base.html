@@ -83,11 +83,35 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+.p {
+    margin-bottom: 15px; /* Задает нижний отступ в 15px */
+}
+
+input[type="submit"] {
+  background-color: blue; /* Green background */
+  color: white; /* White text */
+  padding: 5px 9px; /* Spacing inside the button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  font-size: 16px; /* Text size */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
 
 
     </style>
 </head>
 <body>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li
+            {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
         <path

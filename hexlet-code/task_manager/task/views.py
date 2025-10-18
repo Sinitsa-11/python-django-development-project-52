@@ -34,6 +34,7 @@ class TaskShowView(View):
                     "task": task,
                 },
             )
+        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
         return redirect("login")
 
 
@@ -42,14 +43,15 @@ class TaskCreateView(View):
         if request.user.is_authenticated:
             form = TaskForm()
             return render(request, "tasks/create.html", {"form": form})
-        else:
-            return redirect("login")
+        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+        return redirect("login")
 
     def post(self, request, *args, **kwargs):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.instance.author = self.request.user
             form.save()
+            messages.info(request, 'Задача успешно создана')
             return redirect("tasks_list")
         return render(request, "tasks/create.html"), {"form": form}
 
@@ -63,6 +65,7 @@ class TaskUpdateView(View):
             return render(
                 request, "tasks/update.html", {"form": form, "task_id": task_id}
             )
+        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -71,6 +74,7 @@ class TaskUpdateView(View):
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
+            messages.info(request, 'Задача успешно обновлена')
             return redirect("tasks_list")
         return render(
             request, "tasks/update.html", {"form": form, "task_id": task_id}
@@ -88,7 +92,9 @@ class TaskDeleteView(View):
                     request, "tasks/delete.html", {"task_id": task_id}
                 )
             else:
+                messages.info(request, 'У вас нет прав на удаление задач других пользователей')
                 return redirect("tasks_list")
+        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -96,6 +102,6 @@ class TaskDeleteView(View):
         task = Task.objects.get(id=task_id)
         if task:
             task.delete()
-            messages.success(request, "meow")
+            messages.info(request, 'Задача удалена')
             return redirect('tasks_list')
         return render(request, "tasks/delete.html", {"task_id": task_id})

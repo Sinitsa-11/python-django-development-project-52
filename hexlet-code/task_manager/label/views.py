@@ -26,6 +26,7 @@ class LabelCreateView(View):
         if request.user.is_authenticated:
             form = LabelForm()
             return render(request, "labels/create.html", {"form": form})
+        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -33,6 +34,7 @@ class LabelCreateView(View):
         if form.is_valid():
             form.instance.author = self.request.user
             form.save()
+            messages.info(request, 'Метка успешно создана')
             return redirect("labels_list")
         return render(request, "labels/create.html", {"form": form})
 
@@ -46,6 +48,7 @@ class LabelUpdateView(View):
             return render(
                 request, "labels/update.html", {"form": form, "label_id": label_id}
             )
+        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -53,6 +56,7 @@ class LabelUpdateView(View):
         label = Label.objects.get(id=label_id)
         form = LabelForm(request.POST, instance=label)
         if form.is_valid():
+            messages.info(request, 'Метка успешно обновлена')
             form.save()
             return redirect("labels_list")
         return render(
@@ -67,10 +71,12 @@ class LabelDeleteView(View):
             label_id = kwargs.get("id")
             label = Label.objects.get(id=label_id)
             if task.models.Task.objects.filter(label=label).exists():
+                messages.info(request, 'Нельзя удалить метку, которая используется в данный момент')
                 return redirect("labels_list")
             return render(
                 request, "labels/delete.html", {"label_id": label_id}
             )
+        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -78,7 +84,7 @@ class LabelDeleteView(View):
         label = Label.objects.get(id=label_id)
         if label:
             label.delete()
-            messages.success(request, "meow")
+            messages.info(request, 'Метка успешно удалена')
             return redirect('labels_list')
         return render(
             request, "labels/delete.html", {"label_id": label_id}

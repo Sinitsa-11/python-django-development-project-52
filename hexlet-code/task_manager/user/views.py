@@ -33,9 +33,11 @@ class CustomUserUpdateView(View):
                     request, "users/update.html", {"form": form, "user_id": user_id}
                 )
             else:
-                return HttpResponse("you damn wrong")
+                messages.info(request, 'У вас нет прав на изменение другого пользователя')
+                return redirect("users_list")
         else:
-            return HttpResponse("you idiot")
+            messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+            return redirect("login")
 
     def post(self, request, *args, **kwargs):
         user_id = kwargs["user_id"]
@@ -43,6 +45,7 @@ class CustomUserUpdateView(View):
         form = CustomUserChangeForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            messages.info(request, 'Пользователь успешно изменен')
             return redirect("users_list")
         return render(
             request, "users/update.html", {"form": form, "user_id": user_id}
@@ -61,9 +64,11 @@ class PasswordUpdateView(View):
                     request, "users/reset_password_form.html", {"form": form, "user_to_reset": user}
                 )
             else:
-                return HttpResponse("you damn wrong")
+                messages.info(request, 'У вас нет прав на изменение другого пользователя')
+                return redirect("users_list")
         else:
-            return HttpResponse("you idiot")
+            messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+            return redirect("login")
 
     def post(self, request, *args, **kwargs):
         user_id = kwargs["user_id"]
@@ -71,6 +76,7 @@ class PasswordUpdateView(View):
         form = SetPasswordForm(user, request.POST)
         if form.is_valid():
             form.save()
+            messages.info(request, 'Пароль успешно обновлен')
             return redirect("login")
         return render(
             request, "users/reset_password_form.html", {"form": form, "user_to_reset": user}
@@ -88,9 +94,11 @@ class CustomUserDeleteView(View):
                     request, "users/delete.html", {"user_id": user_id}
                 )
             else:
-                return HttpResponse("you damn wrong")
+                messages.info(request, 'У вас нет прав на удаление другого пользователя')
+                return redirect("users_list")
         else:
-            return HttpResponse("you idiot")
+            messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+            return redirect("login")
 
     def post(self, request, *args, **kwargs):
         user_id = kwargs["user_id"]
