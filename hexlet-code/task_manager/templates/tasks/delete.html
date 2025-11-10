@@ -2,6 +2,6 @@
 {% block content %}
  <form action="{% url 'tasks_delete' id=task_id %}" method="post">
     {% csrf_token %}
-    <input type="submit" value="Удалить">
+    <input type="submit" value="Delete">
 </form>
 {% endblock %}

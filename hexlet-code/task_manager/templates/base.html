@@ -3,7 +3,7 @@
 <head>
     <!-- Обязательные метатеги -->
     <meta charset="utf-8">
-    <title>Менеджер задач</title>
+    <title>Task manager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -106,9 +106,7 @@ input[type="submit"] {
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li
-            {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
-    </li>
+    {{ message }}
     {% endfor %}
 </ul>
 {% endif %}
@@ -168,17 +166,17 @@ input[type="submit"] {
     <div class="nav-scroller py-1 mb-3 border-bottom">
         <nav class="nav nav-underline justify-content-between">
             <a class="nav-item nav-link link-body-emphasis active" href="{% url 'home' %}"
-            >Менеджер задач</a
+            >Task manager</a
             >
-            <a class="nav-item nav-link link-body-emphasis" href="{% url 'users_list' %}">Пользователи</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{% url 'users_list' %}">Users</a>
             {% if user.is_authenticated %}
-            <a class="nav-item nav-link link-body-emphasis" href="{% url 'statuses_list' %}">Статусы</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{% url 'labels_list' %}">Метки</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{% url 'tasks_list' %}">Задачи</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{% url 'logout' %}">Выход</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{% url 'statuses_list' %}">Statuses</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{% url 'labels_list' %}">Labels</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{% url 'tasks_list' %}">Tasks</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{% url 'logout' %}">Logout</a>
             {% else %}
-            <a class="nav-item nav-link link-body-emphasis" href="{% url 'login' %}">Вход</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{% url 'signup' %}">Регистрация</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{% url 'login' %}">Login</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{% url 'signup' %}">Signup</a>
             {% endif %}
         </nav>
     </div>

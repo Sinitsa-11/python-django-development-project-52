@@ -1,0 +1,7 @@
+     ../../../gettext-0.14.4-src/gettext-runtime/../gettext-tools/lib/closeout.c \
+     ../../../gettext-0.14.4-src/gettext-runtime/../gettext-tools/lib/error.c \
+     ../../../gettext-0.14.4-src/gettext-runtime/../gettext-tools/lib/getopt.c \
+     ../../../gettext-0.14.4-src/gettext-runtime/../gettext-tools/lib/xmalloc.c \
+     ../../../gettext-0.14.4-src/gettext-runtime/src/envsubst.c \
+     ../../../gettext-0.14.4-src/gettext-runtime/src/gettext.c \
+     ../../../gettext-0.14.4-src/gettext-runtime/src/ngettext.c

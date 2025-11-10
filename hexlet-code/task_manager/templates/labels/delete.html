@@ -2,6 +2,6 @@
 {% block content %}
  <form action="{% url 'labels_delete' id=label_id %}" method="post">
     {% csrf_token %}
-    <input type="submit" value="Удалить">
+    <input type="submit" value="Delete">
 </form>
 {% endblock %}

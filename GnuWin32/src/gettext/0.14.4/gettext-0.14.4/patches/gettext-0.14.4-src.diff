@@ -1,0 +1,2386 @@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/Makefile.in gettext-0.14.4-src/Makefile.in
+--- gettext-0.14.4-orig/Makefile.in	2005-04-11 21:14:10.000000000 +0200
++++ gettext-0.14.4-src/Makefile.in	2005-05-06 13:01:08.031250000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -89,7 +91,7 @@ CXX = @CXX@
+ CXXCPP = @CXXCPP@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ ECHO_C = @ECHO_C@
+ ECHO_N = @ECHO_N@
+ ECHO_T = @ECHO_T@
+@@ -119,6 +121,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_STRIP = @ac_ct_STRIP@
+ am__leading_dot = @am__leading_dot@
+ am__tar = @am__tar@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/Makefile.in gettext-0.14.4-src/autoconf-lib-link/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/Makefile.in	2005-04-11 21:14:31.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/Makefile.in	2005-05-06 13:01:08.109375000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -104,7 +106,7 @@ CXXCPP = @CXXCPP@
+ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -125,7 +127,7 @@ LDFLAGS = @LDFLAGS@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBOBJS = @LTLIBOBJS@
+ MAKEINFO = @MAKEINFO@
+ OBJDUMP = @OBJDUMP@
+@@ -142,6 +144,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_AR = @ac_ct_AR@
+ ac_ct_AS = @ac_ct_AS@
+ ac_ct_CC = @ac_ct_CC@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/m4/Makefile.in gettext-0.14.4-src/autoconf-lib-link/m4/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/m4/Makefile.in	2005-04-11 21:14:30.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/m4/Makefile.in	2005-05-06 13:01:08.125000000 +0200
+@@ -18,6 +18,8 @@
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -80,7 +82,7 @@ CXXCPP = @CXXCPP@
+ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -101,7 +103,7 @@ LDFLAGS = @LDFLAGS@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBOBJS = @LTLIBOBJS@
+ MAKEINFO = @MAKEINFO@
+ OBJDUMP = @OBJDUMP@
+@@ -118,6 +120,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_AR = @ac_ct_AR@
+ ac_ct_AS = @ac_ct_AS@
+ ac_ct_CC = @ac_ct_CC@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/Makefile.in	2005-04-11 21:14:31.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/Makefile.in	2005-05-06 13:01:08.187500000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -69,7 +71,7 @@ CXXCPP = @CXXCPP@
+ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -90,7 +92,7 @@ LDFLAGS = @LDFLAGS@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBOBJS = @LTLIBOBJS@
+ MAKEINFO = @MAKEINFO@
+ OBJDUMP = @OBJDUMP@
+@@ -107,6 +109,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_AR = @ac_ct_AR@
+ ac_ct_AS = @ac_ct_AS@
+ ac_ct_CC = @ac_ct_CC@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/rpathlx/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/rpathlx/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/rpathlx/Makefile.in	2005-04-11 21:48:25.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/rpathlx/Makefile.in	2005-05-06 13:01:08.218750000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(usex_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -103,7 +105,7 @@ CCDEPMODE = @CCDEPMODE@
+ CFLAGS = @CFLAGS@
+ CPPFLAGS = @CPPFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ ECHO_C = @ECHO_C@
+ ECHO_N = @ECHO_N@
+@@ -132,6 +134,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_CC = @ac_ct_CC@
+ ac_ct_STRIP = @ac_ct_STRIP@
+ am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
+@@ -244,6 +248,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/rpathly/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/rpathly/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/rpathly/Makefile.in	2005-04-11 21:48:28.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/rpathly/Makefile.in	2005-05-06 13:01:08.265625000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(usey_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -103,7 +105,7 @@ CCDEPMODE = @CCDEPMODE@
+ CFLAGS = @CFLAGS@
+ CPPFLAGS = @CPPFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ ECHO_C = @ECHO_C@
+ ECHO_N = @ECHO_N@
+@@ -132,6 +134,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_CC = @ac_ct_CC@
+ ac_ct_STRIP = @ac_ct_STRIP@
+ am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
+@@ -244,6 +248,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/rpathlyx/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/rpathlyx/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/rpathlyx/Makefile.in	2005-04-11 21:48:32.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/rpathlyx/Makefile.in	2005-05-06 13:01:08.296875000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(usey_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -103,7 +105,7 @@ CCDEPMODE = @CCDEPMODE@
+ CFLAGS = @CFLAGS@
+ CPPFLAGS = @CPPFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ ECHO_C = @ECHO_C@
+ ECHO_N = @ECHO_N@
+@@ -134,6 +136,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_CC = @ac_ct_CC@
+ ac_ct_STRIP = @ac_ct_STRIP@
+ am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
+@@ -246,6 +250,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/rpathlz/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/rpathlz/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/rpathlz/Makefile.in	2005-04-11 21:48:35.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/rpathlz/Makefile.in	2005-05-06 13:01:08.343750000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(usez_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -103,7 +105,7 @@ CCDEPMODE = @CCDEPMODE@
+ CFLAGS = @CFLAGS@
+ CPPFLAGS = @CPPFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ ECHO_C = @ECHO_C@
+ ECHO_N = @ECHO_N@
+@@ -132,6 +134,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_CC = @ac_ct_CC@
+ ac_ct_STRIP = @ac_ct_STRIP@
+ am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
+@@ -244,6 +248,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/rpathlzyx/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/rpathlzyx/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/rpathlzyx/Makefile.in	2005-04-11 21:48:38.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/rpathlzyx/Makefile.in	2005-05-06 13:01:08.375000000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(usez_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -103,7 +105,7 @@ CCDEPMODE = @CCDEPMODE@
+ CFLAGS = @CFLAGS@
+ CPPFLAGS = @CPPFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ ECHO_C = @ECHO_C@
+ ECHO_N = @ECHO_N@
+@@ -136,6 +138,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_CC = @ac_ct_CC@
+ ac_ct_STRIP = @ac_ct_STRIP@
+ am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
+@@ -248,6 +252,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/rpathx/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/rpathx/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/rpathx/Makefile.in	2005-04-11 21:48:00.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/rpathx/Makefile.in	2005-05-06 13:01:08.421875000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(librpathx_la_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -118,7 +120,7 @@ CXXCPP = @CXXCPP@
+ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ ECHO = @ECHO@
+ ECHO_C = @ECHO_C@
+@@ -136,7 +138,7 @@ LDFLAGS = @LDFLAGS@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBOBJS = @LTLIBOBJS@
+ MAKEINFO = @MAKEINFO@
+ OBJEXT = @OBJEXT@
+@@ -152,6 +154,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_AR = @ac_ct_AR@
+ ac_ct_CC = @ac_ct_CC@
+ ac_ct_CXX = @ac_ct_CXX@
+@@ -274,6 +278,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/rpathy/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/rpathy/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/rpathy/Makefile.in	2005-04-11 21:48:10.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/rpathy/Makefile.in	2005-05-06 13:01:08.453125000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(librpathy_la_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -118,7 +120,7 @@ CXXCPP = @CXXCPP@
+ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ ECHO = @ECHO@
+ ECHO_C = @ECHO_C@
+@@ -137,7 +139,7 @@ LIBOBJS = @LIBOBJS@
+ LIBRPATHX = @LIBRPATHX@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBOBJS = @LTLIBOBJS@
+ LTLIBRPATHX = @LTLIBRPATHX@
+ MAKEINFO = @MAKEINFO@
+@@ -154,6 +156,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_AR = @ac_ct_AR@
+ ac_ct_CC = @ac_ct_CC@
+ ac_ct_CXX = @ac_ct_CXX@
+@@ -276,6 +280,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/autoconf-lib-link/tests/rpathz/Makefile.in gettext-0.14.4-src/autoconf-lib-link/tests/rpathz/Makefile.in
+--- gettext-0.14.4-orig/autoconf-lib-link/tests/rpathz/Makefile.in	2005-04-11 21:48:19.000000000 +0200
++++ gettext-0.14.4-src/autoconf-lib-link/tests/rpathz/Makefile.in	2005-05-06 13:01:08.484375000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(librpathz_la_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -118,7 +120,7 @@ CXXCPP = @CXXCPP@
+ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ ECHO = @ECHO@
+ ECHO_C = @ECHO_C@
+@@ -138,7 +140,7 @@ LIBRPATHX = @LIBRPATHX@
+ LIBRPATHY = @LIBRPATHY@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBOBJS = @LTLIBOBJS@
+ LTLIBRPATHX = @LTLIBRPATHX@
+ LTLIBRPATHY = @LTLIBRPATHY@
+@@ -156,6 +158,8 @@ SET_MAKE = @SET_MAKE@
+ SHELL = @SHELL@
+ STRIP = @STRIP@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_AR = @ac_ct_AR@
+ ac_ct_CC = @ac_ct_CC@
+ ac_ct_CXX = @ac_ct_CXX@
+@@ -278,6 +282,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/Makefile.in gettext-0.14.4-src/gettext-runtime/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/Makefile.in	2005-04-11 21:15:05.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/Makefile.in	2005-05-06 13:01:08.531250000 +0200
+@@ -16,6 +16,8 @@
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -165,7 +167,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -216,7 +218,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@
+@@ -248,6 +250,8 @@ SUBDIR_libasprintf = @SUBDIR_libasprintf
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/config.h.in gettext-0.14.4-src/gettext-runtime/config.h.in
+--- gettext-0.14.4-orig/gettext-runtime/config.h.in	2005-04-11 21:14:57.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/config.h.in	2005-05-06 13:01:08.546875000 +0200
+@@ -453,10 +453,22 @@
+ 
+ /* On Windows, variables that may be in a DLL must be marked specially.  */
+ #if defined _MSC_VER && defined _DLL
+-# define DLL_VARIABLE __declspec (dllimport)
++# undef BUILDING_GETTEXT
+ #else
++# define BUILDING_GETTEXT 1
++#endif
++
++#ifdef GETTEXT_STATIC
++#define GETTEXT_DLL_EXPORTED
++#else /* GETTEXT_STATIC */
++#ifdef BUILDING_GETTEXT
++#define GETTEXT_DLL_EXPORTED __declspec(dllexport)
+ # define DLL_VARIABLE
++#else
++#define GETTEXT_DLL_EXPORTED __declspec(dllimport)
++#define DLL_VARIABLE GETTEXT_DLL_EXPORTED
+ #endif
++#endif /* GETTEXT_STATIC */
+ 
+ /* Extra OS/2 (emx+gcc) defines.  */
+ #ifdef __EMX__
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/doc/Makefile.in gettext-0.14.4-src/gettext-runtime/doc/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/doc/Makefile.in	2005-04-11 21:15:03.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/doc/Makefile.in	2005-05-06 13:01:08.593750000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -118,7 +120,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -169,7 +171,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@
+@@ -201,6 +203,8 @@ SUBDIR_libasprintf = @SUBDIR_libasprintf
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/intl/Makefile.in gettext-0.14.4-src/gettext-runtime/intl/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/intl/Makefile.in	2005-04-11 20:34:59.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/intl/Makefile.in	2005-05-06 15:46:34.640625000 +0200
+@@ -18,11 +18,15 @@
+ 
+ PACKAGE = @PACKAGE@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ 
+ SHELL = /bin/sh
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = ../@top_builddir@res
++vpath %.rc ../@top_builddir@res
+ top_builddir = ..
+ VPATH = $(srcdir)
+ 
+@@ -47,11 +51,13 @@ l = @INTL_LIBTOOL_SUFFIX_PREFIX@
+ AR = ar
+ CC = @CC@
+ LIBTOOL = @LIBTOOL@
++RCTOOL_COMPILE = RCTOOL
++LATOOL = LATOOL
+ RANLIB = @RANLIB@
+ YACC = @INTLBISON@ -y -d
+ YFLAGS = --name-prefix=__gettext
+ 
+-DEFS = -DLOCALEDIR=\"$(localedir)\" -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
++DEFS = -DINSTALLDIR=\"$(prefix)\"  -DLOCALEDIR=\"$(localedir)\" -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
+ -DLIBDIR=\"$(libdir)\" -DIN_LIBINTL \
+ -DENABLE_RELOCATABLE=1 -DIN_LIBRARY -DINSTALLDIR=\"$(libdir)\" -DNO_XMALLOC \
+ -Dset_relocation_prefix=libintl_set_relocation_prefix \
+@@ -59,7 +65,8 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" -DLO
+ -DDEPENDS_ON_LIBICONV=1 @DEFS@
+ CPPFLAGS = @CPPFLAGS@
+ CFLAGS = @CFLAGS@
+-LDFLAGS = @LDFLAGS@
++LDFLAGS = @LDFLAGS@ $(VERFLAGS)
++VERFLAGS = -Wl,--major-image-version=$(MAJOR) -Wl,--minor-image-version=$(MINOR)
+ LIBS = @LIBS@
+ 
+ COMPILE = $(CC) -c $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS)
+@@ -79,7 +86,7 @@ HEADERS = \
+   vasnprintf.h vasnwprintf.h vasnprintf.c \
+   os2compat.h \
+   libgnuintl.h.in
+-SOURCES = \
++SOURCES =libintl-dllversion.c libintl-dll.rc \
+   bindtextdom.c \
+   dcgettext.c \
+   dgettext.c \
+@@ -105,7 +112,7 @@ SOURCES = \
+   osdep.c \
+   os2compat.c \
+   intl-compat.c
+-OBJECTS = \
++OBJECTS = libintl-dllversion.lo libintl-dll-res.lo \
+   bindtextdom.$lo \
+   dcgettext.$lo \
+   dgettext.$lo \
+@@ -141,7 +148,7 @@ DISTFILES.obsolete = xopen-msg.sed linux
+ COPYING.LIB-2 gettext.h libgettext.h plural-eval.c libgnuintl.h
+ 
+ all: all-@USE_INCLUDED_LIBINTL@
+-all-yes: libintl.$la libintl.h charset.alias ref-add.sed ref-del.sed
++all-yes: libintl.$la libintl.dll libintl.h charset.alias ref-add.sed ref-del.sed
+ all-no: all-no-@BUILD_INCLUDED_LIBINTL@
+ all-no-yes: libgnuintl.$la
+ all-no-no:
+@@ -152,13 +159,18 @@ libintl.a libgnuintl.a: $(OBJECTS)
+ 	$(RANLIB) $@
+ 
+ libintl.la libgnuintl.la: $(OBJECTS)
+-	$(LIBTOOL) --mode=link \
++	$(LATOOL) --mode=link \
+ 	  $(CC) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS) $(LDFLAGS) -o $@ \
+ 	  $(OBJECTS) @LTLIBICONV@ @INTL_MACOSX_LIBS@ $(LIBS) -lc \
+ 	  -version-info $(LTV_CURRENT):$(LTV_REVISION):$(LTV_AGE) \
+ 	  -rpath $(libdir) \
+ 	  -no-undefined
+ 
++intldll_OBJECTS=$(OBJECTS:.lo=.o) 
++libintl.dll: libintl.la
++	cd .libs && o2dll -o $@ -l libintl $(intldll_OBJECTS) --l $(VERFLAGS) -liconv -lgw32c -lole32 -luuid \
++		&& cp -fp libintl*.dll ../$@
++		
+ # Libtool's library version information for libintl.
+ # Before making a gettext release, the gettext maintainer must change this
+ # according to the libtool documentation, section "Library interface versions".
+@@ -169,7 +181,11 @@ LTV_REVISION=3
+ LTV_AGE=4
+ 
+ .SUFFIXES:
+-.SUFFIXES: .c .y .o .lo .sin .sed
++.SUFFIXES: .c .y .o .lo .sin .sed .rc .dll .exe
++
++# Rule to make compiled resource (Windows)
++.rc.o:
++	windres --include-dir $(resdir) -i $< -o $@
+ 
+ .c.o:
+ 	$(COMPILE) $<
+@@ -226,6 +242,10 @@ osdep.lo: $(srcdir)/osdep.c
+ 	$(LIBTOOL) --mode=compile $(COMPILE) $(srcdir)/osdep.c
+ intl-compat.lo: $(srcdir)/intl-compat.c
+ 	$(LIBTOOL) --mode=compile $(COMPILE) $(srcdir)/intl-compat.c
++libintl-dllversion.lo: $(resdir)/libintl-dllversion.c
++	$(LIBTOOL) --mode=compile $(COMPILE) $<
++libintl-dll-res.lo: $(resdir)/libintl-dll-res.rc
++	$(RCTOOL_COMPILE) $<
+ 
+ ref-add.sed: $(srcdir)/ref-add.sin
+ 	sed -e '/^#/d' -e 's/@''PACKAGE''@/@PACKAGE@/g' $(srcdir)/ref-add.sin > t-ref-add.sed
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/intl/bindtextdom.c gettext-0.14.4-src/gettext-runtime/intl/bindtextdom.c
+--- gettext-0.14.4-orig/gettext-runtime/intl/bindtextdom.c	2003-10-16 12:48:24.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/intl/bindtextdom.c	2005-05-06 21:50:59.546875000 +0200
+@@ -86,6 +86,15 @@ __libc_rwlock_define (extern, _nl_state_
+ # define BIND_TEXTDOMAIN_CODESET libintl_bind_textdomain_codeset
+ #endif
+ 
++#ifdef _WIN32
++# include <io.h>
++#endif /* _WIN32 */
++#ifdef ENABLE_RELOCATABLE
++# include <relocate.h>
++#else /* ENABLE_RELOCATABLE */
++# define relocatex(dir,path) (path)
++#endif /* ENABLE_RELOCATABLE */
++
+ /* Specifies the directory name *DIRNAMEP and the output codeset *CODESETP
+    to be used for the DOMAINNAME message catalog.
+    If *DIRNAMEP or *CODESETP is NULL, the corresponding attribute is not
+@@ -343,8 +352,19 @@ set_binding_values (const char *domainna
+ char *
+ BINDTEXTDOMAIN (const char *domainname, const char *dirname)
+ {
++  if (!access (dirname, R_OK)) {
+   set_binding_values (domainname, &dirname, NULL);
+   return (char *) dirname;
++  } else {
++	  char *locale_dirname, *installdir = strdup (dirname), *s;
++	  if ((s = strrchr (installdir, '/'))) *s = '\0';
++	  if ((s = strrchr (installdir, '/'))) *s = '\0';
++	  locale_dirname = relocatex (installdir, dirname);
++	  set_binding_values (domainname, (const char **) &locale_dirname, NULL);
++	  if (installdir)
++	  	free (installdir);
++	  return (char *) locale_dirname;
++  }	  
+ }
+ 
+ /* Specify the character encoding in which the messages from the
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/intl/libgnuintl.h.in gettext-0.14.4-src/gettext-runtime/intl/libgnuintl.h.in
+--- gettext-0.14.4-orig/gettext-runtime/intl/libgnuintl.h.in	2004-08-18 13:01:31.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/intl/libgnuintl.h.in	2005-05-06 13:01:08.734375000 +0200
+@@ -19,6 +19,16 @@
+ #ifndef _LIBINTL_H
+ #define _LIBINTL_H	1
+ 
++#ifdef LIBINTL_STATIC
++#define LIBINTL_DLL_EXPORTED
++#else /* LIBINTL_STATIC */
++#ifdef BUILDING_LIBINTL
++#define LIBINTL_DLL_EXPORTED __declspec(dllexport)
++#else
++#define LIBINTL_DLL_EXPORTED __declspec(dllimport)
++#endif
++#endif /* LIBINTL_STATIC */ 
++
+ #include <locale.h>
+ 
+ /* The LC_MESSAGES locale category is the category used by the functions
+@@ -106,7 +116,7 @@ extern "C" {
+    LC_MESSAGES locale.  If not found, returns MSGID itself (the default
+    text).  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_gettext (const char *__msgid);
++extern LIBINTL_DLL_EXPORTED char *libintl_gettext (const char *__msgid);
+ static inline char *gettext (const char *__msgid)
+ {
+   return libintl_gettext (__msgid);
+@@ -115,14 +125,14 @@ static inline char *gettext (const char 
+ #ifdef _INTL_REDIRECT_MACROS
+ # define gettext libintl_gettext
+ #endif
+-extern char *gettext (const char *__msgid)
++extern LIBINTL_DLL_EXPORTED char *gettext (const char *__msgid)
+        _INTL_ASM (libintl_gettext);
+ #endif
+ 
+ /* Look up MSGID in the DOMAINNAME message catalog for the current
+    LC_MESSAGES locale.  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_dgettext (const char *__domainname, const char *__msgid);
++extern LIBINTL_DLL_EXPORTED char *libintl_dgettext (const char *__domainname, const char *__msgid);
+ static inline char *dgettext (const char *__domainname, const char *__msgid)
+ {
+   return libintl_dgettext (__domainname, __msgid);
+@@ -131,14 +141,14 @@ static inline char *dgettext (const char
+ #ifdef _INTL_REDIRECT_MACROS
+ # define dgettext libintl_dgettext
+ #endif
+-extern char *dgettext (const char *__domainname, const char *__msgid)
++extern LIBINTL_DLL_EXPORTED char *dgettext (const char *__domainname, const char *__msgid)
+        _INTL_ASM (libintl_dgettext);
+ #endif
+ 
+ /* Look up MSGID in the DOMAINNAME message catalog for the current CATEGORY
+    locale.  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_dcgettext (const char *__domainname, const char *__msgid,
++extern LIBINTL_DLL_EXPORTED char *libintl_dcgettext (const char *__domainname, const char *__msgid,
+ 				int __category);
+ static inline char *dcgettext (const char *__domainname, const char *__msgid,
+ 			       int __category)
+@@ -149,7 +159,7 @@ static inline char *dcgettext (const cha
+ #ifdef _INTL_REDIRECT_MACROS
+ # define dcgettext libintl_dcgettext
+ #endif
+-extern char *dcgettext (const char *__domainname, const char *__msgid,
++extern LIBINTL_DLL_EXPORTED char *dcgettext (const char *__domainname, const char *__msgid,
+ 			int __category)
+        _INTL_ASM (libintl_dcgettext);
+ #endif
+@@ -158,7 +168,7 @@ extern char *dcgettext (const char *__do
+ /* Similar to `gettext' but select the plural form corresponding to the
+    number N.  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_ngettext (const char *__msgid1, const char *__msgid2,
++extern LIBINTL_DLL_EXPORTED char *libintl_ngettext (const char *__msgid1, const char *__msgid2,
+ 			       unsigned long int __n);
+ static inline char *ngettext (const char *__msgid1, const char *__msgid2,
+ 			      unsigned long int __n)
+@@ -169,7 +179,7 @@ static inline char *ngettext (const char
+ #ifdef _INTL_REDIRECT_MACROS
+ # define ngettext libintl_ngettext
+ #endif
+-extern char *ngettext (const char *__msgid1, const char *__msgid2,
++extern LIBINTL_DLL_EXPORTED char *ngettext (const char *__msgid1, const char *__msgid2,
+ 		       unsigned long int __n)
+        _INTL_ASM (libintl_ngettext);
+ #endif
+@@ -177,7 +187,7 @@ extern char *ngettext (const char *__msg
+ /* Similar to `dgettext' but select the plural form corresponding to the
+    number N.  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_dngettext (const char *__domainname, const char *__msgid1,
++extern LIBINTL_DLL_EXPORTED char *libintl_dngettext (const char *__domainname, const char *__msgid1,
+ 				const char *__msgid2, unsigned long int __n);
+ static inline char *dngettext (const char *__domainname, const char *__msgid1,
+ 			       const char *__msgid2, unsigned long int __n)
+@@ -188,7 +198,7 @@ static inline char *dngettext (const cha
+ #ifdef _INTL_REDIRECT_MACROS
+ # define dngettext libintl_dngettext
+ #endif
+-extern char *dngettext (const char *__domainname,
++extern LIBINTL_DLL_EXPORTED char *dngettext (const char *__domainname,
+ 			const char *__msgid1, const char *__msgid2,
+ 			unsigned long int __n)
+        _INTL_ASM (libintl_dngettext);
+@@ -197,7 +207,7 @@ extern char *dngettext (const char *__do
+ /* Similar to `dcgettext' but select the plural form corresponding to the
+    number N.  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_dcngettext (const char *__domainname,
++extern LIBINTL_DLL_EXPORTED char *libintl_dcngettext (const char *__domainname,
+ 				 const char *__msgid1, const char *__msgid2,
+ 				 unsigned long int __n, int __category);
+ static inline char *dcngettext (const char *__domainname,
+@@ -210,7 +220,7 @@ static inline char *dcngettext (const ch
+ #ifdef _INTL_REDIRECT_MACROS
+ # define dcngettext libintl_dcngettext
+ #endif
+-extern char *dcngettext (const char *__domainname,
++extern LIBINTL_DLL_EXPORTED char *dcngettext (const char *__domainname,
+ 			 const char *__msgid1, const char *__msgid2,
+ 			 unsigned long int __n, int __category)
+        _INTL_ASM (libintl_dcngettext);
+@@ -221,7 +231,7 @@ extern char *dcngettext (const char *__d
+    If DOMAINNAME is null, return the current default.
+    If DOMAINNAME is "", reset to the default of "messages".  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_textdomain (const char *__domainname);
++extern LIBINTL_DLL_EXPORTED char *libintl_textdomain (const char *__domainname);
+ static inline char *textdomain (const char *__domainname)
+ {
+   return libintl_textdomain (__domainname);
+@@ -230,14 +240,14 @@ static inline char *textdomain (const ch
+ #ifdef _INTL_REDIRECT_MACROS
+ # define textdomain libintl_textdomain
+ #endif
+-extern char *textdomain (const char *__domainname)
++extern LIBINTL_DLL_EXPORTED char *textdomain (const char *__domainname)
+        _INTL_ASM (libintl_textdomain);
+ #endif
+ 
+ /* Specify that the DOMAINNAME message catalog will be found
+    in DIRNAME rather than in the system locale data base.  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_bindtextdomain (const char *__domainname,
++extern LIBINTL_DLL_EXPORTED char *libintl_bindtextdomain (const char *__domainname,
+ 				     const char *__dirname);
+ static inline char *bindtextdomain (const char *__domainname,
+ 				    const char *__dirname)
+@@ -248,14 +258,14 @@ static inline char *bindtextdomain (cons
+ #ifdef _INTL_REDIRECT_MACROS
+ # define bindtextdomain libintl_bindtextdomain
+ #endif
+-extern char *bindtextdomain (const char *__domainname, const char *__dirname)
++extern LIBINTL_DLL_EXPORTED char *bindtextdomain (const char *__domainname, const char *__dirname)
+        _INTL_ASM (libintl_bindtextdomain);
+ #endif
+ 
+ /* Specify the character encoding in which the messages from the
+    DOMAINNAME message catalog will be returned.  */
+ #ifdef _INTL_REDIRECT_INLINE
+-extern char *libintl_bind_textdomain_codeset (const char *__domainname,
++extern LIBINTL_DLL_EXPORTED char *libintl_bind_textdomain_codeset (const char *__domainname,
+ 					      const char *__codeset);
+ static inline char *bind_textdomain_codeset (const char *__domainname,
+ 					     const char *__codeset)
+@@ -266,7 +276,7 @@ static inline char *bind_textdomain_code
+ #ifdef _INTL_REDIRECT_MACROS
+ # define bind_textdomain_codeset libintl_bind_textdomain_codeset
+ #endif
+-extern char *bind_textdomain_codeset (const char *__domainname,
++extern LIBINTL_DLL_EXPORTED char *bind_textdomain_codeset (const char *__domainname,
+ 				      const char *__codeset)
+        _INTL_ASM (libintl_bind_textdomain_codeset);
+ #endif
+@@ -280,7 +290,7 @@ extern char *bind_textdomain_codeset (co
+    or gettext() but for which the format string could be the return value
+    of _() or gettext() need to add this #include.  Oh well.  */
+ 
+-#if !@HAVE_POSIX_PRINTF@
++#if !0
+ 
+ #include <stdio.h>
+ #include <stddef.h>
+@@ -294,69 +304,69 @@ extern char *bind_textdomain_codeset (co
+ 
+ #undef fprintf
+ #define fprintf libintl_fprintf
+-extern int fprintf (FILE *, const char *, ...);
++extern LIBINTL_DLL_EXPORTED int fprintf (FILE *, const char *, ...);
+ #undef vfprintf
+ #define vfprintf libintl_vfprintf
+-extern int vfprintf (FILE *, const char *, va_list);
++extern LIBINTL_DLL_EXPORTED int vfprintf (FILE *, const char *, va_list);
+ 
+ #undef printf
+ #define printf libintl_printf
+-extern int printf (const char *, ...);
++extern LIBINTL_DLL_EXPORTED int printf (const char *, ...);
+ #undef vprintf
+ #define vprintf libintl_vprintf
+-extern int vprintf (const char *, va_list);
++extern LIBINTL_DLL_EXPORTED int vprintf (const char *, va_list);
+ 
+ #undef sprintf
+ #define sprintf libintl_sprintf
+-extern int sprintf (char *, const char *, ...);
++extern LIBINTL_DLL_EXPORTED int sprintf (char *, const char *, ...);
+ #undef vsprintf
+ #define vsprintf libintl_vsprintf
+-extern int vsprintf (char *, const char *, va_list);
++extern LIBINTL_DLL_EXPORTED int vsprintf (char *, const char *, va_list);
+ 
+-#if @HAVE_SNPRINTF@
++#if 0
+ 
+ #undef snprintf
+ #define snprintf libintl_snprintf
+-extern int snprintf (char *, size_t, const char *, ...);
++extern LIBINTL_DLL_EXPORTED int snprintf (char *, size_t, const char *, ...);
+ #undef vsnprintf
+ #define vsnprintf libintl_vsnprintf
+-extern int vsnprintf (char *, size_t, const char *, va_list);
++extern LIBINTL_DLL_EXPORTED int vsnprintf (char *, size_t, const char *, va_list);
+ 
+ #endif
+ 
+-#if @HAVE_ASPRINTF@
++#if 0
+ 
+ #undef asprintf
+ #define asprintf libintl_asprintf
+-extern int asprintf (char **, const char *, ...);
++extern LIBINTL_DLL_EXPORTED int asprintf (char **, const char *, ...);
+ #undef vasprintf
+ #define vasprintf libintl_vasprintf
+-extern int vasprintf (char **, const char *, va_list);
++extern LIBINTL_DLL_EXPORTED int vasprintf (char **, const char *, va_list);
+ 
+ #endif
+ 
+-#if @HAVE_WPRINTF@
++#if 1
+ 
+ #undef fwprintf
+ #define fwprintf libintl_fwprintf
+-extern int fwprintf (FILE *, const wchar_t *, ...);
++extern LIBINTL_DLL_EXPORTED int fwprintf (FILE *, const wchar_t *, ...);
+ #undef vfwprintf
+ #define vfwprintf libintl_vfwprintf
+-extern int vfwprintf (FILE *, const wchar_t *, va_list);
++extern LIBINTL_DLL_EXPORTED int vfwprintf (FILE *, const wchar_t *, va_list);
+ 
+ #undef wprintf
+ #define wprintf libintl_wprintf
+-extern int wprintf (const wchar_t *, ...);
++extern LIBINTL_DLL_EXPORTED int wprintf (const wchar_t *, ...);
+ #undef vwprintf
+ #define vwprintf libintl_vwprintf
+-extern int vwprintf (const wchar_t *, va_list);
++extern LIBINTL_DLL_EXPORTED int vwprintf (const wchar_t *, va_list);
+ 
+ #undef swprintf
+ #define swprintf libintl_swprintf
+-extern int swprintf (wchar_t *, size_t, const wchar_t *, ...);
++extern LIBINTL_DLL_EXPORTED int swprintf (wchar_t *, size_t, const wchar_t *, ...);
+ #undef vswprintf
+ #define vswprintf libintl_vswprintf
+-extern int vswprintf (wchar_t *, size_t, const wchar_t *, va_list);
++extern LIBINTL_DLL_EXPORTED int vswprintf (wchar_t *, size_t, const wchar_t *, va_list);
+ 
+ #endif
+ 
+@@ -371,7 +381,7 @@ extern int vswprintf (wchar_t *, size_t,
+    prefixes should be directory names without trailing slash (i.e. use ""
+    instead of "/").  */
+ #define libintl_set_relocation_prefix libintl_set_relocation_prefix
+-extern void
++extern LIBINTL_DLL_EXPORTED void
+        libintl_set_relocation_prefix (const char *orig_prefix,
+ 				      const char *curr_prefix);
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/intl-csharp/Makefile.in gettext-0.14.4-src/gettext-runtime/intl-csharp/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/intl-csharp/Makefile.in	2005-04-11 21:15:03.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/intl-csharp/Makefile.in	2005-05-06 13:01:08.781250000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -118,7 +120,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -169,7 +171,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@
+@@ -201,6 +203,8 @@ SUBDIR_libasprintf = @SUBDIR_libasprintf
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/intl-java/Makefile.in gettext-0.14.4-src/gettext-runtime/intl-java/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/intl-java/Makefile.in	2005-04-11 21:15:03.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/intl-java/Makefile.in	2005-05-06 13:01:08.812500000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -118,7 +120,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -169,7 +171,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@
+@@ -201,6 +203,8 @@ SUBDIR_libasprintf = @SUBDIR_libasprintf
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/lib/Makefile.in gettext-0.14.4-src/gettext-runtime/lib/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/lib/Makefile.in	2005-04-11 21:15:04.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/lib/Makefile.in	2005-05-06 16:13:00.812500000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(libgrt_a_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -148,7 +150,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = -DDEPENDS_ON_LIBINTL=1 @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  -DDEPENDS_ON_LIBINTL=1 @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -199,7 +201,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@
+@@ -231,6 +233,8 @@ SUBDIR_libasprintf = @SUBDIR_libasprintf
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+@@ -394,6 +398,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/libasprintf/Makefile.in gettext-0.14.4-src/gettext-runtime/libasprintf/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/libasprintf/Makefile.in	2005-04-11 21:15:20.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/libasprintf/Makefile.in	2005-05-06 13:01:08.890625000 +0200
+@@ -19,6 +19,8 @@ SOURCES = $(libasprintf_la_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -157,7 +159,7 @@ CXXCPP = @CXXCPP@
+ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ 
+@@ -182,7 +184,7 @@ LDFLAGS = @LDFLAGS@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBOBJS = @LTLIBOBJS@
+ MAKEINFO = env LANG= LC_MESSAGES= LC_ALL= LANGUAGE= @MAKEINFO@
+ OBJDUMP = @OBJDUMP@
+@@ -201,6 +203,8 @@ SHELL = @SHELL@
+ STRIP = @STRIP@
+ TEXI2PDF = @TEXI2PDF@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ ac_ct_AR = @ac_ct_AR@
+ ac_ct_AS = @ac_ct_AS@
+ ac_ct_CC = @ac_ct_CC@
+@@ -384,6 +388,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+@@ -393,6 +401,10 @@ distclean-compile:
+ .c.lo:
+ 	$(LTCOMPILE) -c -o $@ $<
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .cc.o:
+ 	$(CXXCOMPILE) -c -o $@ $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/libasprintf/config.h.in gettext-0.14.4-src/gettext-runtime/libasprintf/config.h.in
+--- gettext-0.14.4-orig/gettext-runtime/libasprintf/config.h.in	2005-04-11 21:15:17.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/libasprintf/config.h.in	2005-05-06 13:01:08.906250000 +0200
+@@ -138,3 +138,21 @@
+ 
+ /* Define to `unsigned' if <sys/types.h> does not define. */
+ #undef size_t
++
++/* On Windows, variables that may be in a DLL must be marked specially.  */
++#if defined _MSC_VER && defined _DLL
++# undef BUILDING_GETTEXT
++#else
++# define BUILDING_GETTEXT 1
++#endif
++
++#ifdef GETTEXT_STATIC
++#define GETTEXT_DLL_EXPORTED
++#else /* GETTEXT_STATIC */
++#ifdef BUILDING_GETTEXT
++#define GETTEXT_DLL_EXPORTED __declspec(dllexport)
++#else
++#define GETTEXT_DLL_EXPORTED __declspec(dllimport)
++#endif
++#endif /* GETTEXT_STATIC */
++#define DLL_VARIABLE GETTEXT_DLL_EXPORTED
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/m4/Makefile.in gettext-0.14.4-src/gettext-runtime/m4/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/m4/Makefile.in	2005-04-11 21:15:04.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/m4/Makefile.in	2005-05-06 13:01:08.968750000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -119,7 +121,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -170,7 +172,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@
+@@ -202,6 +204,8 @@ SUBDIR_libasprintf = @SUBDIR_libasprintf
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/man/Makefile.in gettext-0.14.4-src/gettext-runtime/man/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/man/Makefile.in	2005-04-11 21:15:04.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/man/Makefile.in	2005-05-06 13:01:09.015625000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -124,7 +126,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -175,7 +177,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@
+@@ -207,6 +209,8 @@ SUBDIR_libasprintf = @SUBDIR_libasprintf
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-runtime/src/Makefile.in gettext-0.14.4-src/gettext-runtime/src/Makefile.in
+--- gettext-0.14.4-orig/gettext-runtime/src/Makefile.in	2005-04-11 21:15:05.000000000 +0200
++++ gettext-0.14.4-src/gettext-runtime/src/Makefile.in	2005-05-06 18:04:29.406250000 +0200
+@@ -19,6 +19,8 @@ SOURCES = $(envsubst_SOURCES) $(gettext_
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = ../../res
++vpath %.rc ../../res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -94,15 +96,15 @@ am__installdirs = "$(DESTDIR)$(bindir)" 
+ binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
+ PROGRAMS = $(bin_PROGRAMS)
+ am_envsubst_OBJECTS = envsubst-envsubst.$(OBJEXT)
+-envsubst_OBJECTS = $(am_envsubst_OBJECTS)
++envsubst_OBJECTS =  envsubst-rc.o $(am_envsubst_OBJECTS)
+ envsubst_LDADD = $(LDADD)
+ envsubst_DEPENDENCIES = ../lib/libgrt.a
+ am_gettext_OBJECTS = gettext-gettext.$(OBJEXT)
+-gettext_OBJECTS = $(am_gettext_OBJECTS)
++gettext_OBJECTS =  gettext-rc.o $(am_gettext_OBJECTS)
+ gettext_LDADD = $(LDADD)
+ gettext_DEPENDENCIES = ../lib/libgrt.a
+ am_ngettext_OBJECTS = ngettext-ngettext.$(OBJEXT)
+-ngettext_OBJECTS = $(am_ngettext_OBJECTS)
++ngettext_OBJECTS =  ngettext-rc.o $(am_ngettext_OBJECTS)
+ ngettext_LDADD = $(LDADD)
+ ngettext_DEPENDENCIES = ../lib/libgrt.a
+ binSCRIPT_INSTALL = $(INSTALL_SCRIPT)
+@@ -155,7 +157,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  -DLOCALEDIR=\"$(localedir)\" @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ ECHO = @ECHO@
+@@ -189,7 +191,7 @@ HAVE_SNPRINTF = @HAVE_SNPRINTF@
+ HAVE_WPRINTF = @HAVE_WPRINTF@
+ HAVE__BOOL = @HAVE__BOOL@
+ INSTALL_DATA = @INSTALL_DATA@
+-INSTALL_PROGRAM = @INSTALL_PROGRAM@
++INSTALL_PROGRAM = @INSTALL_DATA@
+ INSTALL_SCRIPT = @INSTALL_SCRIPT@
+ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+ INSTOBJEXT = @INSTOBJEXT@
+@@ -206,7 +208,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@
+@@ -238,6 +240,8 @@ SUBDIR_libasprintf = @SUBDIR_libasprintf
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+@@ -306,12 +310,12 @@ AM_CPPFLAGS = \
+ 
+ 
+ # Source dependencies.
+-gettext_SOURCES = gettext.c
+-ngettext_SOURCES = ngettext.c
+-envsubst_SOURCES = envsubst.c
++gettext_SOURCES =  gettext-res.rc gettext.c
++ngettext_SOURCES =  ngettext-res.rc ngettext.c
++envsubst_SOURCES =  envsubst-res.rc envsubst.c
+ 
+ # Link dependencies.
+-LDADD = ../lib/libgrt.a @LTLIBINTL@
++LDADD =  -Wl,--major-image-version=$(MAJOR) -Wl,--minor-image-version=$(MINOR) ../lib/libgrt.a @LTLIBINTL@
+ 
+ # Specify installation directory, for --enable-relocatable.
+ gettext_CFLAGS = -DINSTALLDIR=\"$(bindir)\"
+@@ -332,7 +336,7 @@ RELOCATABLE_CONFIG_H_DIR = ..
+ all: all-am
+ 
+ .SUFFIXES:
+-.SUFFIXES: .c .lo .o .obj
++.SUFFIXES: .c .lo .o .obj .rc .exe
+ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+ 	@for dep in $?; do \
+ 	  case '$(am__configure_deps)' in \
+@@ -373,8 +377,8 @@ install-binPROGRAMS: $(bin_PROGRAMS)
+ 	     || test -f $$p1 \
+ 	  ; then \
+ 	    f=`echo "$$p1" | sed 's,^.*/,,;$(transform);s/$$/$(EXEEXT)/'`; \
+-	   echo " $(INSTALL_PROGRAM_ENV) $(LIBTOOL) --mode=install $(binPROGRAMS_INSTALL) '$$p' '$(DESTDIR)$(bindir)/$$f'"; \
+-	   $(INSTALL_PROGRAM_ENV) $(LIBTOOL) --mode=install $(binPROGRAMS_INSTALL) "$$p" "$(DESTDIR)$(bindir)/$$f" || exit 1; \
++	   echo " $(binPROGRAMS_INSTALL) '$$p' '$(DESTDIR)$(bindir)/$$f'"; \
++	   $(binPROGRAMS_INSTALL) ".libs/$$p" "$(DESTDIR)$(bindir)/$$f" || exit 1; \
+ 	  else :; fi; \
+ 	done
+ 
+@@ -458,6 +462,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++.rc.o:
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/Makefile.in gettext-0.14.4-src/gettext-tools/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/Makefile.in	2005-04-11 21:15:55.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/Makefile.in	2005-05-06 13:01:09.140625000 +0200
+@@ -16,6 +16,8 @@
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -180,7 +182,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -254,7 +256,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -294,6 +296,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/config.h.in gettext-0.14.4-src/gettext-tools/config.h.in
+--- gettext-0.14.4-orig/gettext-tools/config.h.in	2005-04-11 21:15:43.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/config.h.in	2005-05-06 13:01:09.187500000 +0200
+@@ -726,10 +726,22 @@
+ 
+ /* On Windows, variables that may be in a DLL must be marked specially.  */
+ #if defined _MSC_VER && defined _DLL
+-# define DLL_VARIABLE __declspec (dllimport)
++# undef BUILDING_GETTEXT
+ #else
++# define BUILDING_GETTEXT 1
++#endif
++
++#ifdef GETTEXT_STATIC
++#define GETTEXT_DLL_EXPORTED
++#else /* GETTEXT_STATIC */
++#ifdef BUILDING_GETTEXT
++#define GETTEXT_DLL_EXPORTED __declspec(dllexport)
+ # define DLL_VARIABLE
++#else
++#define GETTEXT_DLL_EXPORTED __declspec(dllimport)
++#define DLL_VARIABLE GETTEXT_DLL_EXPORTED
+ #endif
++#endif /* GETTEXT_STATIC */
+ 
+ /* Extra OS/2 (emx+gcc) defines.  */
+ #ifdef __EMX__
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/doc/Makefile.in gettext-0.14.4-src/gettext-tools/doc/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/doc/Makefile.in	2005-04-11 21:15:50.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/doc/Makefile.in	2005-05-06 13:01:09.265625000 +0200
+@@ -16,6 +16,8 @@
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -159,7 +161,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ 
+@@ -238,7 +240,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -283,6 +285,8 @@ TEXI2PDF = @TEXI2PDF@ $(TEXINCLUDES)
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/examples/Makefile.in gettext-0.14.4-src/gettext-tools/examples/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/examples/Makefile.in	2005-04-11 21:15:51.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/examples/Makefile.in	2005-05-06 13:01:09.359375000 +0200
+@@ -16,6 +16,8 @@
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -157,7 +159,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -231,7 +233,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -271,6 +273,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/examples/po/Makefile.in gettext-0.14.4-src/gettext-tools/examples/po/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/examples/po/Makefile.in	2005-04-11 21:15:51.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/examples/po/Makefile.in	2005-05-06 13:01:09.406250000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -137,7 +139,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -211,7 +213,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -251,6 +253,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/lib/Makefile.in gettext-0.14.4-src/gettext-tools/lib/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/lib/Makefile.in	2005-04-11 21:15:51.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/lib/Makefile.in	2005-05-06 16:34:31.421875000 +0200
+@@ -20,6 +20,8 @@ SOURCES = $(libgettextlib_la_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -149,6 +151,7 @@ LTCOMPILE = $(LIBTOOL) --tag=CC --mode=c
+ 	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+ 	$(AM_CFLAGS) $(CFLAGS)
+ CCLD = $(CC)
++LATOOL = LATOOL
+ LINK = $(LIBTOOL) --tag=CC --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+ 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
+ SOURCES = $(libgettextlib_la_SOURCES)
+@@ -192,7 +195,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = -DEXEEXT=\"$(EXEEXT)\" -DDEPENDS_ON_LIBINTL=1 \
++DEFS = -DINSTALLDIR=\"$(prefix)\"  -DEXEEXT=\"$(EXEEXT)\" -DDEPENDS_ON_LIBINTL=1 \
+ 	-DDEPENDS_ON_LIBICONV=1 @DEFS@ -DLIBDIR=\"$(libdir)\"
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+@@ -267,7 +270,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -307,6 +310,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+@@ -390,6 +395,7 @@ DISTCLEANFILES = 
+ SUFFIXES = .sed .sin
+ RM = rm -f
+ lib_LTLIBRARIES = libgettextlib.la
++DLLIBRARIES = $(LTLIBRARIES:.la=.dll)
+ 
+ # Sources that are compiled on all platforms.
+ # <<< gnulib module getopt.
+@@ -542,7 +548,13 @@ clean-libLTLIBRARIES:
+ 	  rm -f "$${dir}/so_locations"; \
+ 	done
+ libgettextlib.la: $(libgettextlib_la_OBJECTS) $(libgettextlib_la_DEPENDENCIES) 
+-	$(LINK) -rpath $(libdir) $(libgettextlib_la_LDFLAGS) $(libgettextlib_la_OBJECTS) $(libgettextlib_la_LIBADD) $(LIBS)
++	$(LATOOL) -o $@ -rpath $(libdir) $(libgettextlib_la_LDFLAGS) $(libgettextlib_la_OBJECTS) $(libgettextlib_la_LIBADD) $(LIBS)
++
++gettextlibdll_OBJECTS=$(libgettextlib_la_OBJECTS:.lo=.o)  $(libgettextlib_la_LIBADD:.lo=.o)
++libgettextlib.dll: libgettextlib.la
++	cd .libs && o2dll -o $@ -l libgettextlib $(gettextlibdll_OBJECTS) --l $(VERFLAGS) -L../../intl/.libs -lintl \
++		-lmsvcp60 -liconv -lgw32c -lole32 -luuid -liberty \
++		&& cp -fp libgettextlib.dll ../$@
+ 
+ mostlyclean-compile:
+ 	-rm -f *.$(OBJEXT)
+@@ -550,6 +562,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+@@ -681,7 +697,7 @@ distdir: $(DISTFILES)
+ check-am: all-am
+ check: $(BUILT_SOURCES)
+ 	$(MAKE) $(AM_MAKEFLAGS) check-am
+-all-am: Makefile $(LTLIBRARIES) $(DATA) $(HEADERS) all-local
++all-am: Makefile $(LTLIBRARIES) $(DLLIBRARIES) $(DATA) $(HEADERS) all-local
+ installdirs:
+ 	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(examplesbuildauxdir)" "$(DESTDIR)$(gettextsrcdir)"; do \
+ 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/lib/relocatable.h gettext-0.14.4-src/gettext-tools/lib/relocatable.h
+--- gettext-0.14.4-orig/gettext-tools/lib/relocatable.h	2003-08-24 15:53:51.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/lib/relocatable.h	2004-10-03 14:31:49.000000000 +0200
+@@ -36,6 +36,11 @@ extern "C" {
+ #else
+ # define RELOCATABLE_DLL_EXPORTED
+ #endif
++#if defined _MSC_VER && _DLL
++# define RELOCATABLE_DLL_EXPORTED __declspec(dllimport)
++#else
++# define RELOCATABLE_DLL_EXPORTED
++#endif
+ 
+ /* Sets the original and the current installation prefix of the package.
+    Relocation simply replaces a pathname starting with the original prefix
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/libuniname/Makefile.in gettext-0.14.4-src/gettext-tools/libuniname/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/libuniname/Makefile.in	2005-04-11 21:15:52.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/libuniname/Makefile.in	2005-05-06 13:01:09.609375000 +0200
+@@ -19,6 +19,8 @@ SOURCES = $(libuniname_a_SOURCES) test-n
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -165,7 +167,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -239,7 +241,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -279,6 +281,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+@@ -403,6 +407,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++%-rc.o: %.rc
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/m4/Makefile.in gettext-0.14.4-src/gettext-tools/m4/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/m4/Makefile.in	2005-04-11 21:15:52.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/m4/Makefile.in	2005-05-06 13:01:09.640625000 +0200
+@@ -18,6 +18,8 @@
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -152,7 +154,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -226,7 +228,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -266,6 +268,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/man/Makefile.in gettext-0.14.4-src/gettext-tools/man/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/man/Makefile.in	2005-04-11 21:15:52.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/man/Makefile.in	2005-05-06 13:01:09.687500000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -142,7 +144,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -216,7 +218,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -256,6 +258,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/misc/Makefile.in gettext-0.14.4-src/gettext-tools/misc/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/misc/Makefile.in	2005-04-11 21:15:53.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/misc/Makefile.in	2005-05-06 13:01:09.734375000 +0200
+@@ -18,6 +18,8 @@
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -159,7 +161,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -233,7 +235,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -273,6 +275,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/projects/Makefile.in gettext-0.14.4-src/gettext-tools/projects/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/projects/Makefile.in	2005-04-11 21:15:53.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/projects/Makefile.in	2005-05-06 13:01:09.781250000 +0200
+@@ -15,6 +15,8 @@
+ @SET_MAKE@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = @top_builddir@res
++vpath %.rc @top_builddir@res
+ VPATH = @srcdir@
+ pkglibdir = $(libdir)/@PACKAGE@
+ pkgincludedir = $(includedir)/@PACKAGE@
+@@ -137,7 +139,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -211,7 +213,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -251,6 +253,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/src/Makefile.in gettext-0.14.4-src/gettext-tools/src/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/src/Makefile.in	2005-04-11 21:15:54.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/src/Makefile.in	2005-05-06 18:27:24.687500000 +0200
+@@ -20,6 +20,8 @@ SOURCES = $(libgettextpo_la_SOURCES) $(l
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = ../@top_builddir@res
++vpath %.rc ../@top_builddir@res
+ VPATH = @srcdir@
+ pkgincludedir = $(includedir)/@PACKAGE@
+ top_builddir = ..
+@@ -29,6 +31,7 @@ install_sh_DATA = $(install_sh) -c -m 64
+ install_sh_PROGRAM = $(install_sh) -c
+ install_sh_SCRIPT = $(install_sh) -c
+ INSTALL_HEADER = $(INSTALL_DATA)
++binDLLIBRARIES_INSTALL = $(install_sh_PROGRAM)
+ transform = $(program_transform_name)
+ NORMAL_INSTALL = :
+ PRE_INSTALL = :
+@@ -123,9 +126,10 @@ am__installdirs = "$(DESTDIR)$(libdir)" 
+ 	"$(DESTDIR)$(includedir)"
+ libLTLIBRARIES_INSTALL = $(INSTALL)
+ LTLIBRARIES = $(lib_LTLIBRARIES)
++DLLIBRARIES = $(bin_DLLIBRARIES)
+ libgettextpo_la_LIBADD =
+ am_libgettextpo_la_OBJECTS = gettext-po.lo
+-libgettextpo_la_OBJECTS = $(am_libgettextpo_la_OBJECTS)
++libgettextpo_la_OBJECTS = $(am_libgettextpo_la_OBJECTS)	libgettextpo-dllversion.lo libgettextpo-dll-res.lo
+ libgettextsrc_la_LIBADD =
+ am__objects_1 = message.lo po-error.lo read-po-abstract.lo po-lex.lo \
+ 	po-gram-gen.lo po-charset.lo read-properties.lo \
+@@ -140,68 +144,69 @@ am_libgettextsrc_la_OBJECTS = $(am__obje
+ 	write-properties.lo write-stringtable.lo write-po.lo \
+ 	msgl-ascii.lo msgl-iconv.lo msgl-equal.lo msgl-cat.lo \
+ 	msgl-english.lo file-list.lo msgl-charset.lo po-time.lo \
+-	plural.lo plural-table.lo $(am__objects_2)
++	plural.lo plural-table.lo $(am__objects_2) \
++	libgettextsrc-dllversion.lo libgettextsrc-dll-res.lo
+ libgettextsrc_la_OBJECTS = $(am_libgettextsrc_la_OBJECTS)
+ binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
+ PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
+-am_hostname_OBJECTS = hostname-hostname.$(OBJEXT)
++am_hostname_OBJECTS = hostname-hostname.$(OBJEXT) hostname-res.$(OBJEXT)
+ hostname_OBJECTS = $(am_hostname_OBJECTS)
+ hostname_LDADD = $(LDADD)
+ hostname_DEPENDENCIES = ../lib/libgettextlib.la
+-am_msgattrib_OBJECTS = msgattrib-msgattrib.$(OBJEXT)
++am_msgattrib_OBJECTS = msgattrib-msgattrib.$(OBJEXT) msgattrib-res.$(OBJEXT)
+ msgattrib_OBJECTS = $(am_msgattrib_OBJECTS)
+ msgattrib_DEPENDENCIES = libgettextsrc.la
+-am_msgcat_OBJECTS = msgcat-msgcat.$(OBJEXT)
++am_msgcat_OBJECTS = msgcat-msgcat.$(OBJEXT) msgcat-res.$(OBJEXT)
+ msgcat_OBJECTS = $(am_msgcat_OBJECTS)
+ msgcat_DEPENDENCIES = libgettextsrc.la
+-am_msgcmp_OBJECTS = msgcmp-msgcmp.$(OBJEXT)
++am_msgcmp_OBJECTS = msgcmp-msgcmp.$(OBJEXT) msgcmp-res.$(OBJEXT)
+ msgcmp_OBJECTS = $(am_msgcmp_OBJECTS)
+ msgcmp_DEPENDENCIES = libgettextsrc.la
+-am_msgcomm_OBJECTS = msgcomm-msgcomm.$(OBJEXT)
++am_msgcomm_OBJECTS = msgcomm-msgcomm.$(OBJEXT) msgcomm-res.$(OBJEXT)
+ msgcomm_OBJECTS = $(am_msgcomm_OBJECTS)
+ msgcomm_DEPENDENCIES = libgettextsrc.la
+-am_msgconv_OBJECTS = msgconv-msgconv.$(OBJEXT)
++am_msgconv_OBJECTS = msgconv-msgconv.$(OBJEXT) msgconv-res.$(OBJEXT)
+ msgconv_OBJECTS = $(am_msgconv_OBJECTS)
+ msgconv_DEPENDENCIES = libgettextsrc.la
+-am_msgen_OBJECTS = msgen-msgen.$(OBJEXT)
++am_msgen_OBJECTS = msgen-msgen.$(OBJEXT) msgen-res.$(OBJEXT)
+ msgen_OBJECTS = $(am_msgen_OBJECTS)
+ msgen_DEPENDENCIES = libgettextsrc.la
+-am_msgexec_OBJECTS = msgexec-msgexec.$(OBJEXT)
++am_msgexec_OBJECTS = msgexec-msgexec.$(OBJEXT) msgexec-res.$(OBJEXT)
+ msgexec_OBJECTS = $(am_msgexec_OBJECTS)
+ msgexec_DEPENDENCIES = libgettextsrc.la
+-am_msgfilter_OBJECTS = msgfilter-msgfilter.$(OBJEXT)
++am_msgfilter_OBJECTS = msgfilter-msgfilter.$(OBJEXT) msgfilter-res.$(OBJEXT)
+ msgfilter_OBJECTS = $(am_msgfilter_OBJECTS)
+ msgfilter_DEPENDENCIES = libgettextsrc.la
+ am_msgfmt_OBJECTS = msgfmt-msgfmt.$(OBJEXT) msgfmt-write-mo.$(OBJEXT) \
+ 	msgfmt-write-java.$(OBJEXT) msgfmt-write-csharp.$(OBJEXT) \
+ 	msgfmt-write-resources.$(OBJEXT) msgfmt-write-tcl.$(OBJEXT) \
+-	msgfmt-write-qt.$(OBJEXT) msgfmt-plural-eval.$(OBJEXT)
++	msgfmt-write-qt.$(OBJEXT) msgfmt-plural-eval.$(OBJEXT) msgfmt-res.$(OBJEXT)
+ msgfmt_OBJECTS = $(am_msgfmt_OBJECTS)
+ msgfmt_DEPENDENCIES = libgettextsrc.la
+-am_msggrep_OBJECTS = msggrep-msggrep.$(OBJEXT)
++am_msggrep_OBJECTS = msggrep-msggrep.$(OBJEXT) msggrep-res.$(OBJEXT)
+ msggrep_OBJECTS = $(am_msggrep_OBJECTS)
+ am__DEPENDENCIES_1 = ../libgrep/libgrep.a
+ msggrep_DEPENDENCIES = $(am__DEPENDENCIES_1) libgettextsrc.la
+ am_msginit_OBJECTS = msginit-msginit.$(OBJEXT) \
+-	msginit-plural-count.$(OBJEXT) msginit-localealias.$(OBJEXT)
++	msginit-plural-count.$(OBJEXT) msginit-localealias.$(OBJEXT) msginit-res.$(OBJEXT)
+ msginit_OBJECTS = $(am_msginit_OBJECTS)
+ msginit_DEPENDENCIES =  \
+ 	../intl/localename.@INTL_LIBTOOL_SUFFIX_PREFIX@o \
+ 	libgettextsrc.la
+ am_msgmerge_OBJECTS = msgmerge-msgmerge.$(OBJEXT) \
+-	msgmerge-plural-count.$(OBJEXT)
++	msgmerge-plural-count.$(OBJEXT) msgmerge-res.$(OBJEXT)
+ msgmerge_OBJECTS = $(am_msgmerge_OBJECTS)
+ msgmerge_DEPENDENCIES = libgettextsrc.la
+ am_msgunfmt_OBJECTS = msgunfmt-msgunfmt.$(OBJEXT) \
+ 	msgunfmt-read-mo.$(OBJEXT) msgunfmt-read-java.$(OBJEXT) \
+ 	msgunfmt-read-csharp.$(OBJEXT) \
+-	msgunfmt-read-resources.$(OBJEXT) msgunfmt-read-tcl.$(OBJEXT)
++	msgunfmt-read-resources.$(OBJEXT) msgunfmt-read-tcl.$(OBJEXT) msgunfmt-res.$(OBJEXT)
+ msgunfmt_OBJECTS = $(am_msgunfmt_OBJECTS)
+ msgunfmt_DEPENDENCIES = libgettextsrc.la
+-am_msguniq_OBJECTS = msguniq-msguniq.$(OBJEXT)
++am_msguniq_OBJECTS = msguniq-msguniq.$(OBJEXT) msguniq-res.$(OBJEXT)
+ msguniq_OBJECTS = $(am_msguniq_OBJECTS)
+ msguniq_DEPENDENCIES = libgettextsrc.la
+-am_urlget_OBJECTS = urlget-urlget.$(OBJEXT)
++am_urlget_OBJECTS = urlget-urlget.$(OBJEXT) urlget-res.$(OBJEXT)
+ urlget_OBJECTS = $(am_urlget_OBJECTS)
+ urlget_LDADD = $(LDADD)
+ urlget_DEPENDENCIES = ../lib/libgettextlib.la
+@@ -214,7 +219,7 @@ am_xgettext_OBJECTS = xgettext-xgettext.
+ 	xgettext-x-csharp.$(OBJEXT) xgettext-x-awk.$(OBJEXT) \
+ 	xgettext-x-ycp.$(OBJEXT) xgettext-x-tcl.$(OBJEXT) \
+ 	xgettext-x-perl.$(OBJEXT) xgettext-x-php.$(OBJEXT) \
+-	xgettext-x-rst.$(OBJEXT) xgettext-x-glade.$(OBJEXT)
++	xgettext-x-rst.$(OBJEXT) xgettext-x-glade.$(OBJEXT) xgettext-res.$(OBJEXT)
+ xgettext_OBJECTS = $(am_xgettext_OBJECTS)
+ am__DEPENDENCIES_2 = ../libuniname/libuniname.a
+ xgettext_DEPENDENCIES = $(am__DEPENDENCIES_2) libgettextsrc.la
+@@ -232,6 +237,7 @@ LINK = $(LIBTOOL) --tag=CC --mode=link $
+ YACCCOMPILE = $(YACC) $(YFLAGS) $(AM_YFLAGS)
+ LTYACCCOMPILE = $(LIBTOOL) --mode=compile $(YACC) $(YFLAGS) \
+ 	$(AM_YFLAGS)
++RCTOOL_COMPILE = RCTOOL
+ SOURCES = $(libgettextpo_la_SOURCES) $(libgettextsrc_la_SOURCES) \
+ 	$(hostname_SOURCES) $(msgattrib_SOURCES) $(msgcat_SOURCES) \
+ 	$(msgcmp_SOURCES) $(msgcomm_SOURCES) $(msgconv_SOURCES) \
+@@ -285,7 +291,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = \
++DEFS = -DINSTALLDIR=\"$(prefix)\"  \
+   -DLOCALEDIR=\"$(localedir)\" \
+   -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
+   -DUSEJEXE=$(USEJEXE) \
+@@ -348,7 +354,7 @@ HAVE_SNPRINTF = @HAVE_SNPRINTF@
+ HAVE_WPRINTF = @HAVE_WPRINTF@
+ HAVE__BOOL = @HAVE__BOOL@
+ INSTALL_DATA = @INSTALL_DATA@
+-INSTALL_PROGRAM = @INSTALL_PROGRAM@
++INSTALL_PROGRAM = @INSTALL_DATA@
+ INSTALL_SCRIPT = @INSTALL_SCRIPT@
+ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+ INSTOBJEXT = @INSTOBJEXT@
+@@ -368,7 +374,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -408,6 +414,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = @XGETTEXT@
+ YACC = @YACC@ -d
+ ac_ct_AR = @ac_ct_AR@
+@@ -478,6 +486,7 @@ CLEANFILES = gnu.gettext.DumpResource$(E
+ DISTCLEANFILES = user-email
+ RM = rm -f
+ lib_LTLIBRARIES = libgettextsrc.la libgettextpo.la
++bin_DLLIBRARIES = $(LTLIBRARIES:.la=.dll)
+ include_HEADERS = gettext-po.h
+ noinst_HEADERS = pos.h message.h po-error.h po-gram.h po-charset.h \
+ po-lex.h open-po.h \
+@@ -509,7 +518,7 @@ AM_CPPFLAGS = \
+   -I../lib -I$(top_srcdir)/lib \
+   -I../intl -I$(top_srcdir)/../gettext-runtime/intl
+ 
+-LDADD = ../lib/libgettextlib.la @LTLIBINTL@
++LDADD =  -Wl,--major-image-version=$(MAJOR) -Wl,--minor-image-version=$(MINOR) ../lib/libgettextlib.la @LTLIBINTL@
+ SED = sed
+ JAVACOMP = $(SHELL) ../lib/javacomp.sh
+ CSHARPCOMP = $(SHELL) ../lib/csharpcomp.sh
+@@ -558,32 +567,32 @@ LIBGREP = ../libgrep/libgrep.a
+ LIBUNINAME = ../libuniname/libuniname.a
+ 
+ # Source dependencies.
+-msgcmp_SOURCES = msgcmp.c
++msgcmp_SOURCES = msgcmp.c msgcmp.rc
+ msgfmt_SOURCES = msgfmt.c \
+   write-mo.c write-java.c write-csharp.c write-resources.c write-tcl.c \
+-  write-qt.c plural-eval.c
++  write-qt.c plural-eval.c msgfmt.rc
+ 
+-msgmerge_SOURCES = msgmerge.c plural-count.c
++msgmerge_SOURCES = msgmerge.c plural-count.c msgmerge.rc
+ msgunfmt_SOURCES = msgunfmt.c \
+-  read-mo.c read-java.c read-csharp.c read-resources.c read-tcl.c
++  read-mo.c read-java.c read-csharp.c read-resources.c read-tcl.c msgunfmt.rc
+ 
+ xgettext_SOURCES = xgettext.c \
+   x-c.c x-po.c x-sh.c x-python.c x-lisp.c x-elisp.c x-librep.c x-scheme.c \
+   x-smalltalk.c x-java.c x-csharp.c x-awk.c x-ycp.c x-tcl.c x-perl.c x-php.c \
+-  x-rst.c x-glade.c
++  x-rst.c x-glade.c xgettext.rc
+ 
+-msgattrib_SOURCES = msgattrib.c
+-msgcat_SOURCES = msgcat.c
+-msgcomm_SOURCES = msgcomm.c
+-msgconv_SOURCES = msgconv.c
+-msgen_SOURCES = msgen.c
+-msgexec_SOURCES = msgexec.c
+-msgfilter_SOURCES = msgfilter.c
+-msggrep_SOURCES = msggrep.c
+-msginit_SOURCES = msginit.c plural-count.c ../../gettext-runtime/intl/localealias.c
+-msguniq_SOURCES = msguniq.c
+-hostname_SOURCES = hostname.c
+-urlget_SOURCES = urlget.c
++msgattrib_SOURCES = msgattrib.c msgattrib.rc
++msgcat_SOURCES = msgcat.c msgcat.rc
++msgcomm_SOURCES = msgcomm.c msgcomm.rc
++msgconv_SOURCES = msgconv.c msgconv.rc
++msgen_SOURCES = msgen.c msgen.rc
++msgexec_SOURCES = msgexec.c msgexec.rc
++msgfilter_SOURCES = msgfilter.c msgfilter.rc
++msggrep_SOURCES = msggrep.c msggrep.rc
++msginit_SOURCES = msginit.c plural-count.c ../../gettext-runtime/intl/localealias.c msginit.rc
++msguniq_SOURCES = msguniq.c msguniq.rc
++hostname_SOURCES = hostname.c hostname.rc
++urlget_SOURCES = urlget.c urlget.rc
+ 
+ # How to build libgettextsrc.la.
+ # Need ../lib/libgettextlib.la.
+@@ -683,7 +692,7 @@ all: $(BUILT_SOURCES)
+ 	$(MAKE) $(AM_MAKEFLAGS) all-am
+ 
+ .SUFFIXES:
+-.SUFFIXES: .c .lo .o .obj .y
++.SUFFIXES: .c .lo .o .obj .y .rc .exe .dll
+ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+ 	@for dep in $?; do \
+ 	  case '$(am__configure_deps)' in \
+@@ -721,8 +730,8 @@ install-libLTLIBRARIES: $(lib_LTLIBRARIE
+ 	@list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+ 	  if test -f $$p; then \
+ 	    f=$(am__strip_dir) \
+-	    echo " $(LIBTOOL) --mode=install $(libLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(libdir)/$$f'"; \
+-	    $(LIBTOOL) --mode=install $(libLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(libdir)/$$f"; \
++	    echo " $(libLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(libdir)/$$f'"; \
++	    $(libLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(libdir)/$$f"; \
+ 	  else :; fi; \
+ 	done
+ 
+@@ -743,9 +752,23 @@ clean-libLTLIBRARIES:
+ 	  rm -f "$${dir}/so_locations"; \
+ 	done
+ libgettextpo.la: $(libgettextpo_la_OBJECTS) $(libgettextpo_la_DEPENDENCIES) 
+-	$(LINK) -rpath $(libdir) $(libgettextpo_la_LDFLAGS) $(libgettextpo_la_OBJECTS) $(libgettextpo_la_LIBADD) $(LIBS)
++	$(LATOOL) -rpath $(libdir) $(libgettextpo_la_LDFLAGS) $(libgettextpo_la_OBJECTS) $(libgettextpo_la_LIBADD) $(LIBS)
+ libgettextsrc.la: $(libgettextsrc_la_OBJECTS) $(libgettextsrc_la_DEPENDENCIES) 
+-	$(LINK) -rpath $(libdir) $(libgettextsrc_la_LDFLAGS) $(libgettextsrc_la_OBJECTS) $(libgettextsrc_la_LIBADD) $(LIBS)
++	$(LATOOL) -rpath $(libdir) $(libgettextsrc_la_LDFLAGS) $(libgettextsrc_la_OBJECTS) $(libgettextsrc_la_LIBADD) $(LIBS)
++gettextpodll_OBJECTS=$(libgettextpo_la_OBJECTS:.lo=.o)  $(libgettextpo_la_LIBADD:.lo=.o)
++libgettextpo.dll: libgettextpo.la libgettextsrc.dll
++	cd .libs && o2dll -o $@ -l libgettextpo $(gettextpodll_OBJECTS) --l $(VERFLAGS) -L../../intl/.libs -lintl \
++		-L. -lgettextsrc \
++		-L../../lib/.libs -lgettextlib \
++		-lmsvcp60 -liconv -lgw32c -lole32 -luuid -liberty \
++		&& cp -fp $@ ../$@
++gettextsrcdll_OBJECTS=$(libgettextsrc_la_OBJECTS:.lo=.o)  $(libgettextsrc_la_LIBADD:.lo=.o)
++libgettextsrc.dll: libgettextsrc.la
++	cd .libs && o2dll -o $@ -l libgettextsrc $(gettextsrcdll_OBJECTS) --l $(VERFLAGS) -L../../intl/.libs -lintl \
++		-L../../lib/.libs -lgettextlib \
++		-lmsvcp60 -liconv -lgw32c -lole32 -luuid -liberty \
++		&& cp -fp $@ ../$@
++
+ install-binPROGRAMS: $(bin_PROGRAMS)
+ 	@$(NORMAL_INSTALL)
+ 	test -z "$(bindir)" || $(mkdir_p) "$(DESTDIR)$(bindir)"
+@@ -755,8 +778,22 @@ install-binPROGRAMS: $(bin_PROGRAMS)
+ 	     || test -f $$p1 \
+ 	  ; then \
+ 	    f=`echo "$$p1" | sed 's,^.*/,,;$(transform);s/$$/$(EXEEXT)/'`; \
+-	   echo " $(INSTALL_PROGRAM_ENV) $(LIBTOOL) --mode=install $(binPROGRAMS_INSTALL) '$$p' '$(DESTDIR)$(bindir)/$$f'"; \
+-	   $(INSTALL_PROGRAM_ENV) $(LIBTOOL) --mode=install $(binPROGRAMS_INSTALL) "$$p" "$(DESTDIR)$(bindir)/$$f" || exit 1; \
++	   echo " $(binPROGRAMS_INSTALL) '.libs/$$p' '$(DESTDIR)$(bindir)/$$f'"; \
++	   $(binPROGRAMS_INSTALL) ".libs/$$p" "$(DESTDIR)$(bindir)/$$f" || exit 1; \
++	  else :; fi; \
++	done
++
++install-binDLLIBRARIES: $(bin_DLLIBRARIES)
++	@$(NORMAL_INSTALL)
++	$(mkdir_p) $(DESTDIR)$(bindir)
++	@list='$(bin_DLLIBRARIES)'; for p in $$list; do \
++	  p1=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
++	  if test -f $$p \
++	     || test -f $$p1 \
++	  ; then \
++	    f="$$p1" ; \
++	   echo " $(binDLLIBRARIES_INSTALL) $$p $(DESTDIR)$(bindir)/$$f"; \
++	   $(binDLLIBRARIES_INSTALL) $$p $(DESTDIR)$(bindir)/$$f || exit 1; \
+ 	  else :; fi; \
+ 	done
+ 
+@@ -855,6 +892,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++.rc.o:
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+@@ -1164,6 +1205,16 @@ xgettext-x-glade.o: x-glade.c
+ xgettext-x-glade.obj: x-glade.c
+ 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xgettext_CFLAGS) $(CFLAGS) -c -o xgettext-x-glade.obj `if test -f 'x-glade.c'; then $(CYGPATH_W) 'x-glade.c'; else $(CYGPATH_W) '$(srcdir)/x-glade.c'; fi`
+ 
++libgettextpo-dllversion.lo: $(resdir)/libgettextpo-dllversion.c
++	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(CFLAGS) -c $<
++libgettextpo-dll-res.lo: $(resdir)/libgettextpo-dll-res.rc
++	$(RCTOOL_COMPILE) $<
++
++libgettextsrc-dllversion.lo: $(resdir)/libgettextsrc-dllversion.c
++	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(CFLAGS) -c  $<
++libgettextsrc-dll-res.lo: $(resdir)/libgettextsrc-dll-res.rc
++	$(RCTOOL_COMPILE) $<
++	
+ .y.c:
+ 	$(YACCCOMPILE) $<
+ 	if test -f y.tab.h; then \
+@@ -1291,7 +1342,7 @@ distdir: $(DISTFILES)
+ check-am: all-am
+ check: $(BUILT_SOURCES)
+ 	$(MAKE) $(AM_MAKEFLAGS) check-am
+-all-am: Makefile $(LTLIBRARIES) $(PROGRAMS) $(HEADERS) all-local
++all-am: Makefile $(LTLIBRARIES) $(DLLIBRARIES) $(PROGRAMS) $(HEADERS) all-local
+ install-binPROGRAMS: install-libLTLIBRARIES
+ 
+ installdirs: installdirs-local
+@@ -1350,7 +1401,7 @@ info-am:
+ install-data-am: install-data-local install-includeHEADERS
+ 
+ install-exec-am: install-binPROGRAMS install-exec-local \
+-	install-libLTLIBRARIES
++	install-libLTLIBRARIES install-binDLLIBRARIES
+ 
+ install-info: install-info-am
+ 
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/src/write-csharp.c gettext-0.14.4-src/gettext-tools/src/write-csharp.c
+--- gettext-0.14.4-orig/gettext-tools/src/write-csharp.c	2005-01-13 13:07:01.000000000 +0100
++++ gettext-0.14.4-src/gettext-tools/src/write-csharp.c	2005-05-06 13:01:10.015625000 +0200
+@@ -81,7 +81,7 @@
+ #ifdef __MINGW32__
+ /* mingw's mkdir() function has 1 argument, but we pass 2 arguments.
+    Therefore we have to disable the argument count checking.  */
+-# define mkdir ((int (*)()) mkdir)
++# define mkdir ((int (*)()) _mkdir)
+ #endif
+ 
+ #include "c-ctype.h"
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/src/write-java.c gettext-0.14.4-src/gettext-tools/src/write-java.c
+--- gettext-0.14.4-orig/gettext-tools/src/write-java.c	2005-01-13 13:07:01.000000000 +0100
++++ gettext-0.14.4-src/gettext-tools/src/write-java.c	2005-05-06 13:01:10.046875000 +0200
+@@ -64,7 +64,7 @@
+ #ifdef __MINGW32__
+ /* mingw's mkdir() function has 1 argument, but we pass 2 arguments.
+    Therefore we have to disable the argument count checking.  */
+-# define mkdir ((int (*)()) mkdir)
++# define mkdir ((int (*)()) _mkdir)
+ #endif
+ 
+ #include "c-ctype.h"
+diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.4-orig/gettext-tools/tests/Makefile.in gettext-0.14.4-src/gettext-tools/tests/Makefile.in
+--- gettext-0.14.4-orig/gettext-tools/tests/Makefile.in	2005-04-11 21:15:55.000000000 +0200
++++ gettext-0.14.4-src/gettext-tools/tests/Makefile.in	2005-05-06 17:10:51.609375000 +0200
+@@ -18,6 +18,8 @@ SOURCES = $(cake_SOURCES) $(fc3_SOURCES)
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
++resdir = ../@top_builddir@res
++vpath %.rc ../@top_builddir@res
+ VPATH = @srcdir@
+ pkgdatadir = $(datadir)/@PACKAGE@
+ pkglibdir = $(libdir)/@PACKAGE@
+@@ -188,7 +190,7 @@ CXXDEPMODE = @CXXDEPMODE@
+ CXXFLAGS = @CXXFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+ DATADIRNAME = @DATADIRNAME@
+-DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
++DEFS = -DINSTALLDIR=\"$(prefix)\"  -DLOCALEDIR=\"$(localedir)\" @DEFS@
+ DEPDIR = @DEPDIR@
+ DLLTOOL = @DLLTOOL@
+ DVIPS = @DVIPS@
+@@ -262,7 +264,7 @@ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+-LN_S = @LN_S@
++LN_S = cp -fp
+ LOCALE_FR = @LOCALE_FR@
+ LOCALE_FR_UTF8 = @LOCALE_FR_UTF8@
+ LTLIBEXPAT = @LTLIBEXPAT@
+@@ -302,6 +304,8 @@ TEXI2PDF = @TEXI2PDF@
+ USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+ USE_NLS = @USE_NLS@
+ VERSION = @VERSION@
++MAJOR=$(shell echo $(VERSION) | sed -e "s/\..*$$//")
++MINOR=$(shell echo $(VERSION) | sed -e "s/^[^\.]*\.0*\([^.]*\).*$$/\1/")
+ XGETTEXT = ../src/xgettext
+ YACC = @YACC@
+ ac_ct_AR = @ac_ct_AR@
+@@ -520,7 +524,7 @@ fc5_LDADD = ../lib/libgettextlib.la $(LD
+ all: all-am
+ 
+ .SUFFIXES:
+-.SUFFIXES: .c .lo .o .obj
++.SUFFIXES: .c .lo .o .obj .rc .exe
+ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+ 	@for dep in $?; do \
+ 	  case '$(am__configure_deps)' in \
+@@ -585,6 +589,10 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
++# Rule to make compiled resource (Windows)
++.rc.o:
++	windres --include-dir $(resdir) -i $< -o $@
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 

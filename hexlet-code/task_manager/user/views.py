@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from django.urls import reverse_lazy
@@ -9,8 +9,6 @@ from django.contrib import messages
 from django.contrib.auth.forms import SetPasswordForm
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-
-# from .models import CustomUser
 
 CustomUser = get_user_model()
 
@@ -33,10 +31,10 @@ class CustomUserUpdateView(View):
                     request, "users/update.html", {"form": form, "user_id": user_id}
                 )
             else:
-                messages.info(request, 'У вас нет прав на изменение другого пользователя')
+                messages.info(request, 'You have no permissions to update another user.')
                 return redirect("users_list")
         else:
-            messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+            messages.info(request, 'You are not authorized! Please, log in.')
             return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -45,7 +43,7 @@ class CustomUserUpdateView(View):
         form = CustomUserChangeForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            messages.info(request, 'Пользователь успешно изменен')
+            messages.info(request, 'User was successfully updated.')
             return redirect("users_list")
         return render(
             request, "users/update.html", {"form": form, "user_id": user_id}
@@ -64,10 +62,10 @@ class PasswordUpdateView(View):
                     request, "users/reset_password_form.html", {"form": form, "user_to_reset": user}
                 )
             else:
-                messages.info(request, 'У вас нет прав на изменение другого пользователя')
+                messages.info(request, 'You have no permissions to update another user.')
                 return redirect("users_list")
         else:
-            messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+            messages.info(request, 'You are not authorized! Please, log in.')
             return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -76,7 +74,7 @@ class PasswordUpdateView(View):
         form = SetPasswordForm(user, request.POST)
         if form.is_valid():
             form.save()
-            messages.info(request, 'Пароль успешно обновлен')
+            messages.info(request, 'Password was successfully updated')
             return redirect("login")
         return render(
             request, "users/reset_password_form.html", {"form": form, "user_to_reset": user}
@@ -94,10 +92,10 @@ class CustomUserDeleteView(View):
                     request, "users/delete.html", {"user_id": user_id}
                 )
             else:
-                messages.info(request, 'У вас нет прав на удаление другого пользователя')
+                messages.info(request, 'You have no permissions to delete another user.')
                 return redirect("users_list")
         else:
-            messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+            messages.info(request, 'You are not authorized! Please, log in.')
             return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -105,7 +103,7 @@ class CustomUserDeleteView(View):
         user = get_object_or_404(CustomUser, id=user_id)
         if user:
             user.delete()
-            messages.success(request, "Пользователь удален")
+            messages.success(request, "User was successfully deleted.")
             return redirect('users_list')
         return render(request, "users/delete.html", {"user_id": user_id, "messages": messages})
 

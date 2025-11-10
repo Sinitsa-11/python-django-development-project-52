@@ -26,7 +26,7 @@ class StatusCreateView(View):
         if request.user.is_authenticated:
             form = StatusForm()
             return render(request, "statuses/create.html", {"form": form})
-        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+        messages.info(request, 'You are not authorized! Please, log in.')
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -34,7 +34,7 @@ class StatusCreateView(View):
         if form.is_valid():
             form.instance.author = self.request.user
             form.save()
-            messages.info(request, 'Статус успешно создан')
+            messages.info(request, 'Status was successfully created.')
             return redirect("statuses_list")
         return render(request, "statuses/create.html", {"form": form})
 
@@ -48,7 +48,7 @@ class StatusUpdateView(View):
             return render(
                 request, "statuses/update.html", {"form": form, "status_id": status_id}
             )
-        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+        messages.info(request, 'You are not authorized! Please, log in.')
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -57,7 +57,7 @@ class StatusUpdateView(View):
         form = StatusForm(request.POST, instance=status)
         if form.is_valid():
             form.save()
-            messages.info(request, 'Статус успешно обновлен')
+            messages.info(request, 'Status was successfully updated')
             return redirect("statuses_list")
         return render(
             request, "statuses/update.html", {"form": form, "status_id": status_id}
@@ -71,12 +71,12 @@ class StatusDeleteView(View):
             status_id = kwargs.get("id")
             status = Status.objects.get(id=status_id)
             if task.models.Task.objects.filter(status=status).exists():
-                messages.info(request, 'Нельзя удалить статус, который используется в данный момент')
+                messages.info(request, 'Impossible to delete a status which is currently being used')
                 return redirect("statuses_list")
             return render(
                 request, "statuses/delete.html", {"status_id": status_id}
             )
-        messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход')
+        messages.info(request, 'You are not authorized! Please, log in.')
         return redirect("login")
 
     def post(self, request, *args, **kwargs):
@@ -84,6 +84,6 @@ class StatusDeleteView(View):
         status = Status.objects.get(id=status_id)
         if status:
             status.delete()
-            messages.info(request, 'Статус успешно удален')
+            messages.info(request, 'Status was successfully deleted')
             return redirect('statuses_list')
         return render(request, "statuses/delete.html", {"status_id": status_id})

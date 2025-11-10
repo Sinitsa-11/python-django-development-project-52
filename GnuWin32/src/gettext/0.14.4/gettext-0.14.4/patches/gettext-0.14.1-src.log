@@ -1,0 +1,597 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/Makefile.in gettext-0.14.1-src/Makefile.in
+|--- gettext-0.14.1-orig/Makefile.in	2004-01-29 18:12:21.000000000 +0100
+|+++ gettext-0.14.1-src/Makefile.in	2004-10-03 12:30:21.843750000 +0200
+--------------------------
+Patching file Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 91 (offset 1 line).
+Hunk #3 succeeded at 121 with fuzz 1 (offset 1 line).
+Not setting time of file Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/Makefile.in gettext-0.14.1-src/autoconf-lib-link/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/Makefile.in	2004-01-29 18:12:30.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/Makefile.in	2004-10-03 12:30:19.218750000 +0200
+--------------------------
+Patching file autoconf-lib-link/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 106 (offset 3 lines).
+Hunk #3 succeeded at 127 (offset 3 lines).
+Hunk #4 succeeded at 144 (offset 3 lines).
+Not setting time of file autoconf-lib-link/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/m4/Makefile.in gettext-0.14.1-src/autoconf-lib-link/m4/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/m4/Makefile.in	2004-01-29 18:12:30.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/m4/Makefile.in	2004-10-03 12:30:19.093750000 +0200
+--------------------------
+Patching file autoconf-lib-link/m4/Makefile.in using Plan A...
+Hunk #1 succeeded at 18.
+Hunk #2 succeeded at 82 (offset 6 lines).
+Hunk #3 succeeded at 103 (offset 6 lines).
+Hunk #4 succeeded at 120 (offset 6 lines).
+Not setting time of file autoconf-lib-link/m4/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/Makefile.in	2004-01-29 18:12:31.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/Makefile.in	2004-10-03 12:30:19.281250000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 71.
+Hunk #3 succeeded at 92.
+Hunk #4 succeeded at 109.
+Not setting time of file autoconf-lib-link/tests/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/rpathlx/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/rpathlx/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/rpathlx/Makefile.in	2003-11-16 17:28:17.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/rpathlx/Makefile.in	2004-10-03 12:30:19.343750000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/rpathlx/Makefile.in using Plan A...
+Hunk #1 succeeded at 18 (offset 2 lines).
+Hunk #2 succeeded at 105 (offset 54 lines).
+Hunk #3 succeeded at 134 (offset 54 lines).
+Hunk #4 FAILED at 174.
+Hunk #5 FAILED at 183.
+Hunk #6 succeeded at 248 with fuzz 2 (offset 42 lines).
+Not setting time of file autoconf-lib-link/tests/rpathlx/Makefile.in (time mismatch)
+2 out of 6 hunks FAILED -- saving rejects to file autoconf-lib-link/tests/rpathlx/Makefile.in.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/rpathly/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/rpathly/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/rpathly/Makefile.in	2003-11-16 17:28:19.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/rpathly/Makefile.in	2004-10-03 12:30:19.390625000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/rpathly/Makefile.in using Plan A...
+Hunk #1 succeeded at 18 (offset 2 lines).
+Hunk #2 succeeded at 105 (offset 54 lines).
+Hunk #3 succeeded at 134 (offset 54 lines).
+Hunk #4 FAILED at 174.
+Hunk #5 FAILED at 183.
+Hunk #6 succeeded at 248 with fuzz 2 (offset 42 lines).
+Not setting time of file autoconf-lib-link/tests/rpathly/Makefile.in (time mismatch)
+2 out of 6 hunks FAILED -- saving rejects to file autoconf-lib-link/tests/rpathly/Makefile.in.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/rpathlyx/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/rpathlyx/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/rpathlyx/Makefile.in	2003-11-16 17:28:21.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/rpathlyx/Makefile.in	2004-10-03 12:30:19.453125000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/rpathlyx/Makefile.in using Plan A...
+Hunk #1 succeeded at 18 (offset 2 lines).
+Hunk #2 succeeded at 105 (offset 54 lines).
+Hunk #3 succeeded at 136 (offset 54 lines).
+Hunk #4 FAILED at 176.
+Hunk #5 FAILED at 185.
+Hunk #6 succeeded at 250 with fuzz 2 (offset 42 lines).
+Not setting time of file autoconf-lib-link/tests/rpathlyx/Makefile.in (time mismatch)
+2 out of 6 hunks FAILED -- saving rejects to file autoconf-lib-link/tests/rpathlyx/Makefile.in.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/rpathlz/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/rpathlz/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/rpathlz/Makefile.in	2003-11-16 17:28:24.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/rpathlz/Makefile.in	2004-10-03 12:30:19.515625000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/rpathlz/Makefile.in using Plan A...
+Hunk #1 succeeded at 18 (offset 2 lines).
+Hunk #2 succeeded at 105 (offset 54 lines).
+Hunk #3 succeeded at 134 (offset 54 lines).
+Hunk #4 FAILED at 174.
+Hunk #5 FAILED at 183.
+Hunk #6 succeeded at 248 with fuzz 2 (offset 42 lines).
+Not setting time of file autoconf-lib-link/tests/rpathlz/Makefile.in (time mismatch)
+2 out of 6 hunks FAILED -- saving rejects to file autoconf-lib-link/tests/rpathlz/Makefile.in.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/rpathlzyx/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/rpathlzyx/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/rpathlzyx/Makefile.in	2003-11-16 17:28:26.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/rpathlzyx/Makefile.in	2004-10-03 12:30:19.578125000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/rpathlzyx/Makefile.in using Plan A...
+Hunk #1 succeeded at 18 (offset 2 lines).
+Hunk #2 succeeded at 105 (offset 54 lines).
+Hunk #3 succeeded at 138 (offset 54 lines).
+Hunk #4 FAILED at 178.
+Hunk #5 FAILED at 187.
+Hunk #6 succeeded at 252 with fuzz 2 (offset 42 lines).
+Not setting time of file autoconf-lib-link/tests/rpathlzyx/Makefile.in (time mismatch)
+2 out of 6 hunks FAILED -- saving rejects to file autoconf-lib-link/tests/rpathlzyx/Makefile.in.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/rpathx/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/rpathx/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/rpathx/Makefile.in	2003-05-01 13:04:46.000000000 +0200
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/rpathx/Makefile.in	2004-10-03 12:30:19.625000000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/rpathx/Makefile.in using Plan A...
+Hunk #1 succeeded at 18 (offset 2 lines).
+Hunk #2 succeeded at 120 (offset 63 lines).
+Hunk #3 succeeded at 138 (offset 63 lines).
+Hunk #4 succeeded at 154 (offset 63 lines).
+Hunk #5 succeeded at 278 with fuzz 2 (offset 53 lines).
+Not setting time of file autoconf-lib-link/tests/rpathx/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/rpathy/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/rpathy/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/rpathy/Makefile.in	2003-11-16 17:28:06.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/rpathy/Makefile.in	2004-10-03 12:30:19.687500000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/rpathy/Makefile.in using Plan A...
+Hunk #1 succeeded at 18 (offset 2 lines).
+Hunk #2 succeeded at 120 (offset 63 lines).
+Hunk #3 succeeded at 139 (offset 63 lines).
+Hunk #4 succeeded at 156 (offset 63 lines).
+Hunk #5 succeeded at 280 with fuzz 2 (offset 52 lines).
+Not setting time of file autoconf-lib-link/tests/rpathy/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/autoconf-lib-link/tests/rpathz/Makefile.in gettext-0.14.1-src/autoconf-lib-link/tests/rpathz/Makefile.in
+|--- gettext-0.14.1-orig/autoconf-lib-link/tests/rpathz/Makefile.in	2003-11-16 17:28:13.000000000 +0100
+|+++ gettext-0.14.1-src/autoconf-lib-link/tests/rpathz/Makefile.in	2004-10-03 12:30:19.750000000 +0200
+--------------------------
+Patching file autoconf-lib-link/tests/rpathz/Makefile.in using Plan A...
+Hunk #1 succeeded at 18 (offset 2 lines).
+Hunk #2 succeeded at 120 (offset 63 lines).
+Hunk #3 succeeded at 140 (offset 63 lines).
+Hunk #4 succeeded at 158 (offset 63 lines).
+Hunk #5 succeeded at 282 with fuzz 2 (offset 52 lines).
+Not setting time of file autoconf-lib-link/tests/rpathz/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+can't find file to patch at input line 606
+Perhaps you used the wrong -p or --strip option?
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/config/install-reloc gettext-0.14.1-src/config/install-reloc
+|--- gettext-0.14.1-orig/config/install-reloc	2003-12-19 12:17:28.000000000 +0100
+|+++ gettext-0.14.1-src/config/install-reloc	2004-10-05 20:16:02.937500000 +0200
+--------------------------
+File to patch: 
+Skip this patch? [y] 
+Skipping patch.
+Hunk #1 ignored at 109.
+1 out of 1 hunk ignored
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/Makefile.in gettext-0.14.1-src/gettext-runtime/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/Makefile.in	2004-01-29 18:12:53.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/Makefile.in	2004-10-03 12:30:20.484375000 +0200
+--------------------------
+Patching file gettext-runtime/Makefile.in using Plan A...
+Hunk #1 succeeded at 16.
+Hunk #2 succeeded at 167 (offset 14 lines).
+Hunk #3 succeeded at 218 (offset 17 lines).
+Hunk #4 succeeded at 250 (offset 17 lines).
+Not setting time of file gettext-runtime/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/config.h.in gettext-0.14.1-src/gettext-runtime/config.h.in
+|--- gettext-0.14.1-orig/gettext-runtime/config.h.in	2004-01-29 18:12:47.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/config.h.in	2004-10-03 19:33:29.203125000 +0200
+--------------------------
+Patching file gettext-runtime/config.h.in using Plan A...
+Hunk #1 succeeded at 453 (offset 39 lines).
+Not setting time of file gettext-runtime/config.h.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/doc/Makefile.in gettext-0.14.1-src/gettext-runtime/doc/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/doc/Makefile.in	2004-01-29 18:12:53.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/doc/Makefile.in	2004-10-03 12:30:19.812500000 +0200
+--------------------------
+Patching file gettext-runtime/doc/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 120 (offset 5 lines).
+Hunk #3 succeeded at 171 (offset 8 lines).
+Hunk #4 succeeded at 203 (offset 8 lines).
+Not setting time of file gettext-runtime/doc/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/intl/Makefile.in gettext-0.14.1-src/gettext-runtime/intl/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/intl/Makefile.in	2004-01-17 16:54:06.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/intl/Makefile.in	2004-10-03 22:58:26.875000000 +0200
+--------------------------
+Patching file gettext-runtime/intl/Makefile.in using Plan A...
+Hunk #1 succeeded at 18.
+Hunk #2 succeeded at 51.
+Hunk #3 succeeded at 64.
+Hunk #4 succeeded at 85.
+Hunk #5 succeeded at 111 (offset 1 line).
+Hunk #6 succeeded at 147 (offset 2 lines).
+Hunk #7 succeeded at 165 (offset 2 lines).
+Hunk #8 succeeded at 182 (offset 2 lines).
+Hunk #9 succeeded at 241 (offset 4 lines).
+Not setting time of file gettext-runtime/intl/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/intl/libgnuintl.h.in gettext-0.14.1-src/gettext-runtime/intl/libgnuintl.h.in
+|--- gettext-0.14.1-orig/gettext-runtime/intl/libgnuintl.h.in	2003-11-16 16:27:58.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/intl/libgnuintl.h.in	2004-10-03 17:43:30.218750000 +0200
+--------------------------
+Patching file gettext-runtime/intl/libgnuintl.h.in using Plan A...
+Hunk #1 succeeded at 19.
+Hunk #2 succeeded at 116.
+Hunk #3 succeeded at 125.
+Hunk #4 succeeded at 141.
+Hunk #5 succeeded at 159.
+Hunk #6 succeeded at 168.
+Hunk #7 succeeded at 179.
+Hunk #8 succeeded at 187.
+Hunk #9 succeeded at 198.
+Hunk #10 succeeded at 207.
+Hunk #11 succeeded at 220.
+Hunk #12 succeeded at 231.
+Hunk #13 succeeded at 240.
+Hunk #14 succeeded at 258.
+Hunk #15 succeeded at 276.
+Hunk #16 succeeded at 290.
+Hunk #17 succeeded at 304.
+Hunk #18 succeeded at 381.
+Not setting time of file gettext-runtime/intl/libgnuintl.h.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/intl-csharp/Makefile.in gettext-0.14.1-src/gettext-runtime/intl-csharp/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/intl-csharp/Makefile.in	2004-01-29 18:12:53.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/intl-csharp/Makefile.in	2004-10-03 12:30:19.953125000 +0200
+--------------------------
+Patching file gettext-runtime/intl-csharp/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 120 (offset 5 lines).
+Hunk #3 succeeded at 171 (offset 8 lines).
+Hunk #4 succeeded at 203 (offset 8 lines).
+Not setting time of file gettext-runtime/intl-csharp/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/intl-java/Makefile.in gettext-0.14.1-src/gettext-runtime/intl-java/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/intl-java/Makefile.in	2004-01-29 18:12:53.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/intl-java/Makefile.in	2004-10-03 12:30:20.046875000 +0200
+--------------------------
+Patching file gettext-runtime/intl-java/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 120 (offset 5 lines).
+Hunk #3 succeeded at 171 (offset 8 lines).
+Hunk #4 succeeded at 203 (offset 8 lines).
+Not setting time of file gettext-runtime/intl-java/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/lib/Makefile.in gettext-0.14.1-src/gettext-runtime/lib/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/lib/Makefile.in	2004-01-29 18:12:54.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/lib/Makefile.in	2004-10-03 18:52:24.796875000 +0200
+--------------------------
+Patching file gettext-runtime/lib/Makefile.in using Plan A...
+Hunk #1 succeeded at 18.
+Hunk #2 succeeded at 137 (offset 5 lines).
+Hunk #3 succeeded at 150 (offset 5 lines).
+Hunk #4 succeeded at 201 (offset 8 lines).
+Hunk #5 succeeded at 233 (offset 8 lines).
+Hunk #6 succeeded at 398 (offset 20 lines).
+Not setting time of file gettext-runtime/lib/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/libasprintf/Makefile.in gettext-0.14.1-src/gettext-runtime/libasprintf/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/libasprintf/Makefile.in	2004-01-29 18:13:08.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/libasprintf/Makefile.in	2004-10-03 12:30:20.234375000 +0200
+--------------------------
+Patching file gettext-runtime/libasprintf/Makefile.in using Plan A...
+Hunk #1 succeeded at 19.
+Hunk #2 succeeded at 159 (offset 7 lines).
+Hunk #3 succeeded at 184 (offset 7 lines).
+Hunk #4 succeeded at 203 (offset 7 lines).
+Hunk #5 succeeded at 388 (offset 12 lines).
+Hunk #6 succeeded at 401 (offset 12 lines).
+Not setting time of file gettext-runtime/libasprintf/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/libasprintf/config.h.in gettext-0.14.1-src/gettext-runtime/libasprintf/config.h.in
+|--- gettext-0.14.1-orig/gettext-runtime/libasprintf/config.h.in	2004-01-29 18:13:05.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/libasprintf/config.h.in	2004-10-03 18:56:41.000000000 +0200
+--------------------------
+Patching file gettext-runtime/libasprintf/config.h.in using Plan A...
+Hunk #1 succeeded at 138.
+Not setting time of file gettext-runtime/libasprintf/config.h.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/m4/Makefile.in gettext-0.14.1-src/gettext-runtime/m4/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/m4/Makefile.in	2004-01-29 18:12:54.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/m4/Makefile.in	2004-10-03 12:30:20.328125000 +0200
+--------------------------
+Patching file gettext-runtime/m4/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 121 (offset 5 lines).
+Hunk #3 succeeded at 172 (offset 8 lines).
+Hunk #4 succeeded at 204 (offset 8 lines).
+Not setting time of file gettext-runtime/m4/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/man/Makefile.in gettext-0.14.1-src/gettext-runtime/man/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/man/Makefile.in	2004-01-29 18:12:54.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/man/Makefile.in	2004-10-03 12:30:20.562500000 +0200
+--------------------------
+Patching file gettext-runtime/man/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 126 (offset 5 lines).
+Hunk #3 succeeded at 177 (offset 8 lines).
+Hunk #4 succeeded at 209 (offset 8 lines).
+Not setting time of file gettext-runtime/man/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-runtime/src/Makefile.in gettext-0.14.1-src/gettext-runtime/src/Makefile.in
+|--- gettext-0.14.1-orig/gettext-runtime/src/Makefile.in	2004-01-29 18:12:55.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-runtime/src/Makefile.in	2004-10-04 20:18:08.125000000 +0200
+--------------------------
+Patching file gettext-runtime/src/Makefile.in using Plan A...
+Hunk #1 succeeded at 19 (offset 1 line).
+Hunk #2 succeeded at 96 with fuzz 1 (offset 7 lines).
+Hunk #3 succeeded at 157 (offset 9 lines).
+Hunk #4 succeeded at 208 (offset 12 lines).
+Hunk #5 succeeded at 240 (offset 12 lines).
+Hunk #6 succeeded at 310 (offset 13 lines).
+Hunk #7 succeeded at 462 (offset 53 lines).
+Not setting time of file gettext-runtime/src/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/Makefile.in gettext-0.14.1-src/gettext-tools/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/Makefile.in	2004-01-29 18:13:35.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/Makefile.in	2004-10-03 12:30:21.328125000 +0200
+--------------------------
+Patching file gettext-tools/Makefile.in using Plan A...
+Hunk #1 succeeded at 16.
+Hunk #2 succeeded at 182 (offset 13 lines).
+Hunk #3 succeeded at 256 with fuzz 2 (offset 17 lines).
+Hunk #4 succeeded at 296 (offset 18 lines).
+Not setting time of file gettext-tools/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/config.h.in gettext-0.14.1-src/gettext-tools/config.h.in
+|--- gettext-0.14.1-orig/gettext-tools/config.h.in	2004-01-29 18:13:29.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/config.h.in	2004-10-03 19:33:58.687500000 +0200
+--------------------------
+Patching file gettext-tools/config.h.in using Plan A...
+Hunk #1 succeeded at 726 (offset 63 lines).
+Not setting time of file gettext-tools/config.h.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/doc/Makefile.in gettext-0.14.1-src/gettext-tools/doc/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/doc/Makefile.in	2004-01-29 18:13:35.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/doc/Makefile.in	2004-10-03 12:30:20.718750000 +0200
+--------------------------
+Patching file gettext-tools/doc/Makefile.in using Plan A...
+Hunk #1 succeeded at 16 with fuzz 1 (offset 1 line).
+Hunk #2 succeeded at 161 (offset 18 lines).
+Hunk #3 succeeded at 240 with fuzz 2 (offset 22 lines).
+Hunk #4 succeeded at 285 (offset 23 lines).
+Not setting time of file gettext-tools/doc/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/examples/Makefile.in gettext-0.14.1-src/gettext-tools/examples/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/examples/Makefile.in	2004-01-29 18:13:36.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/examples/Makefile.in	2004-10-03 12:30:20.953125000 +0200
+--------------------------
+Patching file gettext-tools/examples/Makefile.in using Plan A...
+Hunk #1 succeeded at 16.
+Hunk #2 succeeded at 159 (offset 15 lines).
+Hunk #3 succeeded at 233 with fuzz 2 (offset 19 lines).
+Hunk #4 succeeded at 273 (offset 20 lines).
+Not setting time of file gettext-tools/examples/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/examples/po/Makefile.in gettext-0.14.1-src/gettext-tools/examples/po/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/examples/po/Makefile.in	2004-01-29 18:13:36.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/examples/po/Makefile.in	2004-10-03 12:30:21.031250000 +0200
+--------------------------
+Patching file gettext-tools/examples/po/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 139 (offset 9 lines).
+Hunk #3 succeeded at 213 with fuzz 2 (offset 13 lines).
+Hunk #4 succeeded at 253 (offset 14 lines).
+Not setting time of file gettext-tools/examples/po/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/lib/Makefile.in gettext-0.14.1-src/gettext-tools/lib/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/lib/Makefile.in	2004-01-29 18:13:36.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/lib/Makefile.in	2004-10-03 23:20:04.906250000 +0200
+--------------------------
+Patching file gettext-tools/lib/Makefile.in using Plan A...
+Hunk #1 succeeded at 20.
+Hunk #2 FAILED at 176.
+Hunk #3 succeeded at 269 with fuzz 2 (offset 23 lines).
+Hunk #4 succeeded at 309 (offset 24 lines).
+Hunk #5 succeeded at 394 with fuzz 1 (offset 30 lines).
+Hunk #6 succeeded at 548 (offset 5 lines).
+Hunk #7 succeeded at 563 (offset 5 lines).
+Hunk #8 FAILED at 695.
+Not setting time of file gettext-tools/lib/Makefile.in (time mismatch)
+2 out of 8 hunks FAILED -- saving rejects to file gettext-tools/lib/Makefile.in.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/lib/relocatable.h gettext-0.14.1-src/gettext-tools/lib/relocatable.h
+|--- gettext-0.14.1-orig/gettext-tools/lib/relocatable.h	2003-08-24 15:53:51.000000000 +0200
+|+++ gettext-0.14.1-src/gettext-tools/lib/relocatable.h	2004-10-03 14:31:49.468750000 +0200
+--------------------------
+Patching file gettext-tools/lib/relocatable.h using Plan A...
+Hunk #1 succeeded at 36.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/libuniname/Makefile.in gettext-0.14.1-src/gettext-tools/libuniname/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/libuniname/Makefile.in	2004-01-29 18:13:37.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/libuniname/Makefile.in	2004-10-03 12:30:21.171875000 +0200
+--------------------------
+Patching file gettext-tools/libuniname/Makefile.in using Plan A...
+Hunk #1 succeeded at 19.
+Hunk #2 succeeded at 167 (offset 9 lines).
+Hunk #3 succeeded at 241 with fuzz 2 (offset 13 lines).
+Hunk #4 succeeded at 281 (offset 14 lines).
+Hunk #5 succeeded at 407 (offset 19 lines).
+Not setting time of file gettext-tools/libuniname/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/m4/Makefile.in gettext-0.14.1-src/gettext-tools/m4/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/m4/Makefile.in	2004-01-29 18:13:37.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/m4/Makefile.in	2004-10-03 12:30:21.234375000 +0200
+--------------------------
+Patching file gettext-tools/m4/Makefile.in using Plan A...
+Hunk #1 succeeded at 18.
+Hunk #2 succeeded at 154 (offset 16 lines).
+Hunk #3 succeeded at 228 with fuzz 2 (offset 20 lines).
+Hunk #4 succeeded at 268 (offset 21 lines).
+Not setting time of file gettext-tools/m4/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/man/Makefile.in gettext-0.14.1-src/gettext-tools/man/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/man/Makefile.in	2004-01-29 18:13:37.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/man/Makefile.in	2004-10-03 12:30:21.406250000 +0200
+--------------------------
+Patching file gettext-tools/man/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 144 (offset 9 lines).
+Hunk #3 succeeded at 218 with fuzz 2 (offset 13 lines).
+Hunk #4 succeeded at 258 (offset 14 lines).
+Not setting time of file gettext-tools/man/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/misc/Makefile.in gettext-0.14.1-src/gettext-tools/misc/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/misc/Makefile.in	2004-01-29 18:13:37.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/misc/Makefile.in	2004-10-03 12:30:21.468750000 +0200
+--------------------------
+Patching file gettext-tools/misc/Makefile.in using Plan A...
+Hunk #1 succeeded at 18.
+Hunk #2 succeeded at 161 (offset 17 lines).
+Hunk #3 succeeded at 235 with fuzz 2 (offset 21 lines).
+Hunk #4 succeeded at 275 (offset 22 lines).
+Not setting time of file gettext-tools/misc/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/projects/Makefile.in gettext-0.14.1-src/gettext-tools/projects/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/projects/Makefile.in	2004-01-29 18:13:37.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/projects/Makefile.in	2004-10-03 12:30:21.531250000 +0200
+--------------------------
+Patching file gettext-tools/projects/Makefile.in using Plan A...
+Hunk #1 succeeded at 15.
+Hunk #2 succeeded at 139 (offset 9 lines).
+Hunk #3 succeeded at 213 with fuzz 2 (offset 13 lines).
+Hunk #4 succeeded at 253 (offset 14 lines).
+Not setting time of file gettext-tools/projects/Makefile.in (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/src/Makefile.in gettext-0.14.1-src/gettext-tools/src/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/src/Makefile.in	2004-01-29 18:13:39.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/src/Makefile.in	2004-10-04 20:32:02.734375000 +0200
+--------------------------
+Patching file gettext-tools/src/Makefile.in using Plan A...
+Hunk #1 succeeded at 20.
+Hunk #2 succeeded at 31.
+Hunk #3 succeeded at 126 with fuzz 2 (offset 15 lines).
+Hunk #4 FAILED at 144.
+Hunk #5 FAILED at 217.
+Hunk #6 FAILED at 235.
+Hunk #7 succeeded at 290 (offset 16 lines).
+Hunk #8 succeeded at 373 with fuzz 2 (offset 20 lines).
+Hunk #9 succeeded at 413 (offset 21 lines).
+Hunk #10 succeeded at 485 with fuzz 2 (offset 25 lines).
+Hunk #11 succeeded at 517 (offset 33 lines).
+Hunk #12 FAILED at 563.
+Hunk #13 succeeded at 752 with fuzz 1 (offset 38 lines).
+Hunk #14 succeeded at 786 (offset 38 lines).
+Hunk #15 succeeded at 895 (offset 39 lines).
+Hunk #16 succeeded at 1208 with fuzz 2 (offset -93 lines).
+Hunk #17 succeeded at 1345 (offset -73 lines).
+Hunk #18 succeeded at 1404 (offset -72 lines).
+Not setting time of file gettext-tools/src/Makefile.in (time mismatch)
+4 out of 18 hunks FAILED -- saving rejects to file gettext-tools/src/Makefile.in.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/src/write-csharp.c gettext-0.14.1-src/gettext-tools/src/write-csharp.c
+|--- gettext-0.14.1-orig/gettext-tools/src/write-csharp.c	2004-01-08 12:31:49.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/src/write-csharp.c	2004-10-03 14:45:35.562500000 +0200
+--------------------------
+Patching file gettext-tools/src/write-csharp.c using Plan A...
+Hunk #1 succeeded at 81.
+Not setting time of file gettext-tools/src/write-csharp.c (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/src/write-java.c gettext-0.14.1-src/gettext-tools/src/write-java.c
+|--- gettext-0.14.1-orig/gettext-tools/src/write-java.c	2004-01-07 11:33:02.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/src/write-java.c	2004-10-03 14:45:12.296875000 +0200
+--------------------------
+Patching file gettext-tools/src/write-java.c using Plan A...
+Hunk #1 succeeded at 64.
+Not setting time of file gettext-tools/src/write-java.c (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ipuwr -x '*.bak' -x '*.orig' -x '*.rej' -x '*.new' -x '*~' gettext-0.14.1-orig/gettext-tools/tests/Makefile.in gettext-0.14.1-src/gettext-tools/tests/Makefile.in
+|--- gettext-0.14.1-orig/gettext-tools/tests/Makefile.in	2004-01-29 18:13:39.000000000 +0100
+|+++ gettext-0.14.1-src/gettext-tools/tests/Makefile.in	2004-10-03 14:53:56.515625000 +0200
+--------------------------
+Patching file gettext-tools/tests/Makefile.in using Plan A...
+Hunk #1 succeeded at 18.
+Hunk #2 succeeded at 112 (offset 9 lines).
+Hunk #3 succeeded at 190 (offset 9 lines).
+Hunk #4 succeeded at 264 with fuzz 2 (offset 13 lines).
+Hunk #5 succeeded at 304 (offset 14 lines).
+Hunk #6 FAILED at 492.
+Hunk #7 succeeded at 589 (offset 25 lines).
+Not setting time of file gettext-tools/tests/Makefile.in (time mismatch)
+1 out of 7 hunks FAILED -- saving rejects to file gettext-tools/tests/Makefile.in.rej
+done

@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Задачи</h1>
-<a class="btn btn-sm btn-outline-secondary" href="create/">Создать</a>
+<h1>Tasks</h1>
+<a class="btn btn-sm btn-outline-secondary" href="create/">Create</a>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Имя</th>
-      <th>Статус</th>
-        <th>Исполнитель</th>
-        <th>Дата создания</th>
+      <th>Name</th>
+      <th>Status</th>
+        <th>Performer</th>
+        <th>Date of creation</th>
       <th></th>
     </tr>
   </thead>
@@ -21,8 +21,8 @@
         <td>{{task.status}}</td>
         <td>{{task.user}}</td>
         <td>{{task.created_at}}</td>
-        <td><a href="/tasks/{{task.id}}/update/">Изменить</a></td>
-        <td><a href="/tasks/{{task.id}}/delete/">Удалить</a></td>
+        <td><a href="/tasks/{{task.id}}/update/">Update</a></td>
+        <td><a href="/tasks/{{task.id}}/delete/">Delete</a></td>
       </tr>
     {% endfor %}
     </tbody>

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Пользователи</h1>
+<h1>Users</h1>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Имя пользователя</th>
-      <th>Полное имя</th>
-      <th>Дата создания</th>
+      <th>Username</th>
+      <th>Full name</th>
+      <th>Date of the signup</th>
       <th></th>
     </tr>
   </thead>
@@ -18,8 +18,8 @@
         <td>{{user.username}}</td>
         <td>{{user.first_name}} {{user.last_name}}</td>
         <td>{{user.date_joined}}</td>
-        <td><a href="/users/{{user.id}}/update/">Изменить</a></td>
-        <td><a href="/users/{{user.id}}/delete/">Удалить</a></td>
+        <td><a href="/users/{{user.id}}/update/">Update</a></td>
+        <td><a href="/users/{{user.id}}/delete/">Delete</a></td>
       </tr>
     {% endfor %}
     </tbody>

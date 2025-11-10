@@ -1,0 +1,24 @@
+export DEFSPLUS=-D_MSC_VER
+export INCLUDESPLUS=
+export CFLAGSPLUS=
+export LDFLAGSPLUS=
+export LIBSPLUS=
+export DLLFLAG=-DBUILDING_DLL -DDLL -DBUILDING_LIBINTL -DBUILDING_GETTEXT
+sedfiles=Makefile libtool config.h
+BUILDDIR=$(shell pwd.sh)
+SRCDIR=../$(shell basename $(BUILDDIR)-src)
+export ac_cv_func_select=no
+
+.PHONY: all 
+all: CONF MFSED
+CONF:
+	$(SRCDIR)/configure --prefix=c:/progra~1/Gettext --srcdir="$(SRCDIR)" \
+		--disable-static --enable-shared --enable-relocatable --disable-libasprintf  
+
+	
+-include $(DVLDIR)/makefile.chg
+
+#	make all
+#	make check
+#	make install prefix=c:/temp/sed
+                                 
