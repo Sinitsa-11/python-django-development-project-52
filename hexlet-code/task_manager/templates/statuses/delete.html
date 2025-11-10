@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<h2>Are you sure you want to delete this status?</h2>
  <form action="{% url 'statuses_delete' id=status_id %}" method="post">
     {% csrf_token %}
     <input type="submit" value="Delete">

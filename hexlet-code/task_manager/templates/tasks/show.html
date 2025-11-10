@@ -1,9 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>{{ task.name }}</h1>
-    <div>{{ task.description }}</div>
-<div>{{ task.status }}</div>
-<div>{{ task.label }}</div>
-<div>{{ task.user }}</div>
-<div>{{ task.author }}</div>
+    <h2>{{ task.description }}</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Label</th>
+        <th>Performer</th>
+        <th>Author</th>
+      <th></th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+        <td>{{task.status}}</td>
+        <td>{{ task.label }}</td>
+        <td>{{task.user}}</td>
+        <td>{{ task.author }}</td>
+        <td><a href="/tasks/{{task.id}}/update/">Update</a></td>
+        <td><a href="/tasks/{{task.id}}/delete/">Delete</a></td>
+      </tr>
+    </tbody>
+</table>
 {% endblock %}

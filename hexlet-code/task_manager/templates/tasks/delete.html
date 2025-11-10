@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<h2>Are you sure you want to delete this task?</h2>
  <form action="{% url 'tasks_delete' id=task_id %}" method="post">
     {% csrf_token %}
     <input type="submit" value="Delete">
